@@ -8,14 +8,14 @@
 
 <style>
 /* ========================= */
-/* CYBERPUNK THEME + COLORS  */
+/* CYBERPUNK VISUAL THEME    */
 /* ========================= */
 
 :root {
     --bg: #03070c;
     --panel: #0b0f17;
     --accent: #31e1ff;
-    --accent-glow: 0 0 12px #31e1ff, 0 0 24px #1cc9ff;
+    --accent-glow: 0 0 12px #31e1ff, 0 0 28px #19b8d8;
     --text: #e8faff;
     --muted: #7ca3b0;
 }
@@ -29,61 +29,53 @@ body {
     overflow-x: hidden;
 }
 
-/* ====== Neon Glow Utility ====== */
+/* Nice universal fade + slide */
+@keyframes fadeSlide {
+    0% { opacity: 0; transform: translateY(40px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+.fade {
+    opacity: 0;
+    animation: fadeSlide 1.2s ease forwards;
+}
+
 .neon {
     color: var(--accent);
     text-shadow: var(--accent-glow);
 }
 
-/* ====== Smooth Fade + Slide Animation ====== */
-@keyframes fadeSlideUp {
-    0% { opacity: 0; transform: translateY(40px); }
-    100% { opacity: 1; transform: translateY(0); }
-}
-
-.fade-in {
-    opacity: 0;
-    animation: fadeSlideUp 1.2s ease forwards;
-}
-
-/* ===== Header ===== */
-
+/* HEADER */
 header {
-    padding: 100px 20px;
+    padding: 110px 20px 90px;
     text-align: center;
     background: radial-gradient(circle at top, #09111c, #03070c 70%);
     border-bottom: 1px solid #0c1a24;
 }
 
 h1 {
-    font-size: 3.2rem;
-    margin-bottom: 10px;
-    color: var(--accent);
+    font-size: 3.4rem;
+    margin-bottom: 15px;
     text-shadow: var(--accent-glow);
-    animation: fadeSlideUp 1.2s ease forwards;
+    color: var(--accent);
 }
 
-.subtitle {
-    opacity: 0.8;
-    animation: fadeSlideUp 1.5s ease forwards;
-}
-
-/* ===== Nav ===== */
+/* NAV BAR */
 nav {
     text-align: center;
-    padding: 20px 0;
-    border-bottom: 1px solid #0d1d29;
-    background: #040f16cc;
+    padding: 18px 0;
+    background: #041018cc;
     backdrop-filter: blur(4px);
+    border-bottom: 1px solid #0f1c26;
     position: sticky;
     top: 0;
     z-index: 10;
 }
 
 nav a {
-    margin: 0 18px;
-    font-weight: 600;
+    margin: 0 22px;
     color: var(--accent);
+    font-weight: 600;
     text-decoration: none;
     transition: 0.3s ease;
 }
@@ -93,29 +85,27 @@ nav a:hover {
     transform: translateY(-2px);
 }
 
-/* ===== Sections ===== */
-
+/* SECTIONS */
 .section {
     width: 90%;
     max-width: 1200px;
-    margin: 60px auto;
+    margin: 70px auto;
 }
 
 h2 {
-    font-size: 2.2rem;
+    font-size: 2.4rem;
     text-align: center;
     color: var(--accent);
     text-shadow: var(--accent-glow);
-    margin-bottom: 25px;
+    margin-bottom: 30px;
 }
 
-/* ===== PROJECT GRID ===== */
-
+/* PROJECT GRID */
 .projects {
     display: grid;
-    gap: 35px;
+    gap: 40px;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    margin-top: 40px;
+    margin-top: 50px;
 }
 
 .card {
@@ -124,50 +114,34 @@ h2 {
     border-radius: 18px;
     border: 1px solid #12212d;
     transition: 0.35s ease;
-    animation: fadeSlideUp 1.3s ease forwards;
+    animation: fadeSlide 1.3s ease forwards;
 }
 
 .card:hover {
-    transform: translateY(-10px);
+    transform: translateY(-12px);
     border-color: var(--accent);
     box-shadow: var(--accent-glow);
 }
 
-/* ===== Text Styling ===== */
-
-.role {
-    color: var(--muted);
-    font-size: 0.9rem;
-    margin-bottom: 10px;
-}
-
-.tech {
-    font-size: 0.9rem;
+.card h3 {
+    margin-top: 0;
+    margin-bottom: 12px;
     color: var(--accent);
-    margin-bottom: 15px;
-}
-
-a {
-    color: var(--accent);
-    font-weight: 600;
-}
-
-a:hover {
     text-shadow: var(--accent-glow);
+    font-size: 1.5rem;
 }
 
-/* ===== Skills ===== */
-
+/* SKILLS GRID */
 .skills-grid {
     display: grid;
     gap: 25px;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    margin-top: 25px;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    margin-top: 30px;
 }
 
 .skill-box {
     background: #0a151d;
-    padding: 20px;
+    padding: 25px;
     border: 1px solid #12212d;
     border-radius: 14px;
     transition: 0.3s ease;
@@ -178,13 +152,18 @@ a:hover {
     box-shadow: var(--accent-glow);
 }
 
-/* ===== Footer ===== */
+.skill-box h3 {
+    color: var(--accent);
+    margin: 0 0 12px 0;
+    text-shadow: var(--accent-glow);
+}
 
+/* FOOTER */
 footer {
     text-align: center;
     padding: 40px;
     color: var(--muted);
-    margin-top: 60px;
+    margin-top: 70px;
     border-top: 1px solid #0b1b27;
 }
 </style>
@@ -192,13 +171,13 @@ footer {
 
 <body>
 
-<header>
+<header class="fade">
     <h1>Mohit Sharma</h1>
     <div class="subtitle">Unity Game Developer — Mobile • VR • Multiplayer • WebGL</div>
     <div class="subtitle">📧 mohitsharma234hbk@gmail.com | 📞 8979556641</div>
 </header>
 
-<nav class="fade-in">
+<nav class="fade">
     <a href="#about">ABOUT</a>
     <a href="#projects">PROJECTS</a>
     <a href="#skills">SKILLS</a>
@@ -206,53 +185,53 @@ footer {
     <a href="#education">EDUCATION</a>
 </nav>
 
-<section id="about" class="section fade-in">
+<section id="about" class="section fade">
 <h2>About Me</h2>
-<p style="text-align:center; max-width:800px; margin:auto;">
-I’m a Unity Game Developer with 5+ years of experience building <strong>combat systems, AI behavior, multiplayer logic, VR interactions, gameplay loops, and UI architecture</strong>.  
-I love crafting digital worlds and making invisible logic feel alive to the player.
+<p style="text-align:center; max-width:830px; margin:auto;">
+I craft game systems, interactions, and moment-to-moment gameplay that feel smooth, alive, and meaningful.  
+My work spans combat mechanics, AI behavior, UI flow, multiplayer logic, world interaction, and VR experiences — all tuned for player feel and performance.
 </p>
 </section>
 
-<section id="skills" class="section fade-in">
+<section id="skills" class="section fade">
 <h2>Core Skills</h2>
 
 <div class="skills-grid">
 
     <div class="skill-box">
-        <h3 class="neon">Programming</h3>
+        <h3>Programming</h3>
         <p>C#, Java, C++</p>
     </div>
 
     <div class="skill-box">
-        <h3 class="neon">Game Development</h3>
-        <p>Combat, AI, UI, Prototyping, Optimization</p>
+        <h3>Game Systems</h3>
+        <p>Combat, AI, UI, Prototyping, Player Controls, Optimization</p>
     </div>
 
     <div class="skill-box">
-        <h3 class="neon">Tools & Engines</h3>
+        <h3>Tools</h3>
         <p>Unity 3D, Visual Studio</p>
     </div>
 
     <div class="skill-box">
-        <h3 class="neon">Multiplayer</h3>
+        <h3>Multiplayer</h3>
         <p>Colyseus, Photon, Netcode</p>
     </div>
 
     <div class="skill-box">
-        <h3 class="neon">Backends / SDKs</h3>
+        <h3>SDKs</h3>
         <p>Firebase, Branch IO, ReadyPlayerMe, XR Toolkit</p>
     </div>
 
     <div class="skill-box">
-        <h3 class="neon">Version Control</h3>
+        <h3>Version Control</h3>
         <p>GitHub, Bitbucket, Plastic SCM</p>
     </div>
 
 </div>
 </section>
 
-<section id="projects" class="section fade-in">
+<section id="projects" class="section fade">
 <h2>Projects</h2>
 
 <div class="projects">
@@ -260,10 +239,8 @@ I love crafting digital worlds and making invisible logic feel alive to the play
     <!-- NURVEIL -->
     <div class="card">
         <h3 class="neon">Nurveil: The Eyes of Light</h3>
-        <div class="role">Primary Developer</div>
-        <div class="tech">Unity • C# • Firebase</div>
         <p><i>In Development — Yet to be Released</i></p>
-        <p>Deep RPG with combat, puzzles, exploration, inventory, and AI systems.</p>
+        <p>A deep RPG featuring combat, puzzles, exploration, inventory, merchants, and AI-driven encounters.</p>
         <p><b>Link:</b> 
             <a href="https://drive.google.com/drive/folders/1qUa0dzF_i9TLK-EEAjVo16XHSIsQ5mMS" target="_blank">
                 Gameplay Video
@@ -274,10 +251,8 @@ I love crafting digital worlds and making invisible logic feel alive to the play
     <!-- ROYAL MARATHA -->
     <div class="card">
         <h3 class="neon">Royal Maratha (VR)</h3>
-        <div class="role">Primary Developer</div>
-        <div class="tech">Unity • OpenXR • C#</div>
-        <p>VR sword combat game with waves, projectiles, and immersive battles.</p>
-        <p><b>Link:</b> 
+        <p>A full VR combat experience with swordplay, waves of enemies, projectiles, and immersive arena design.</p>
+        <p><b>Link:</b>
             <a href="https://youtu.be/-hoqSp7TJNY?si=YIb9zlDXF9-o0D-O" target="_blank">
                 Gameplay Video
             </a>
@@ -287,9 +262,7 @@ I love crafting digital worlds and making invisible logic feel alive to the play
     <!-- CHEESE CHASE -->
     <div class="card">
         <h3 class="neon">Nostril Cheese Chase</h3>
-        <div class="role">Gameplay</div>
-        <div class="tech">Unity • Firebase</div>
-        <p>Endless runner with VFX, animations, and smooth movement systems.</p>
+        <p>An endless runner with sharp movement, VFX-driven feedback, skins, and cloud save support.</p>
         <p><b>Link:</b> 
             <a href="https://play.google.com/store/apps/details?id=com.cheesechase&pcampaignid=web_share" target="_blank">
                 Play Store
@@ -300,9 +273,7 @@ I love crafting digital worlds and making invisible logic feel alive to the play
     <!-- COOKIE GAMER -->
     <div class="card">
         <h3 class="neon">Cookie Gamer</h3>
-        <div class="role">Feature Developer</div>
-        <div class="tech">Unity • WebGL</div>
-        <p>Farming strategy + resource management + army defense mechanics.</p>
+        <p>A farming strategy world featuring resources, upgrades, economy, and army-based defense mechanics.</p>
         <p><b>Link:</b> 
             <a href="https://cookiegamer.ca/" target="_blank">
                 Play Web Version
@@ -313,9 +284,7 @@ I love crafting digital worlds and making invisible logic feel alive to the play
     <!-- FAIRYTALE FRENZY -->
     <div class="card">
         <h3 class="neon">Fairytale Frenzy</h3>
-        <div class="role">Systems & Integrations</div>
-        <div class="tech">Unity • Branch IO • ReadyPlayerMe</div>
-        <p>Match-3 adventure with referral system & avatar generation.</p>
+        <p>A stylized Match-3 game enhanced with referral systems, avatar creation, and social features.</p>
         <p><b>Link:</b> 
             <a href="https://play.google.com/store/apps/details?id=com.tymediaus.fairytale&pcampaignid=web_share" target="_blank">
                 Play Store
@@ -326,9 +295,7 @@ I love crafting digital worlds and making invisible logic feel alive to the play
     <!-- WORD WRAP -->
     <div class="card">
         <h3 class="neon">Word Wrap</h3>
-        <div class="role">Primary Developer</div>
-        <div class="tech">Unity • Colyseus</div>
-        <p>Multiplayer word puzzle with real-time sessions & UI flow.</p>
+        <p>A multiplayer word-puzzle with clean UI flow, smooth transitions, and real-time gameplay sessions.</p>
         <p><b>Link:</b> 
             <a href="https://play.google.com/store/apps/details?id=com.BazanEnterprises.WordWrap&pcampaignid=web_share" target="_blank">
                 Play Store
@@ -339,9 +306,7 @@ I love crafting digital worlds and making invisible logic feel alive to the play
     <!-- HUNT & ESCAPE -->
     <div class="card">
         <h3 class="neon">Hunt and Escape</h3>
-        <div class="role">Primary Developer</div>
-        <div class="tech">Unity</div>
-        <p>Scavenger hunt + treasure hunt gameplay with riddles & progression.</p>
+        <p>A scavenger-hunt adventure with riddles, location clues, exploration, and multi-day play sessions.</p>
         <p><b>Link:</b> 
             <a href="https://play.google.com/store/apps/details?id=com.RanaItinerans.HuntAndEscape&pcampaignid=web_share" target="_blank">
                 Play Store
@@ -352,9 +317,7 @@ I love crafting digital worlds and making invisible logic feel alive to the play
     <!-- BLUEBERRY GAMES -->
     <div class="card">
         <h3 class="neon">Blueberry Games</h3>
-        <div class="role">Game Developer</div>
-        <div class="tech">Unity</div>
-        <p>A mini-game universe with reusable systems + API integrations.</p>
+        <p>A universe of mini-games enhanced with reusable systems, adaptive UI, and live content delivery.</p>
         <p><b>Link:</b> 
             <a href="https://play.google.com/store/apps/details?id=com.novotraxcorp.blueberrygames&pcampaignid=web_share" target="_blank">
                 Play Store
@@ -365,14 +328,14 @@ I love crafting digital worlds and making invisible logic feel alive to the play
 </div>
 </section>
 
-<section id="experience" class="section fade-in">
+<section id="experience" class="section fade">
 <h2>Experience</h2>
 <p><strong>Game Developer — Logic Simplified</strong> (2022–Present)</p>
 <p><strong>Game Developer — Blueberry Fun</strong> (2021–2022)</p>
 <p><strong>Game Developer Intern — Green Light Studios</strong> (2020–2021)</p>
 </section>
 
-<section id="education" class="section fade-in">
+<section id="education" class="section fade">
 <h2>Education</h2>
 <p>MCA (Game Development) — Jain University, Bengaluru</p>
 <p>BSc (IT) — SDS Uttarakhand University</p>

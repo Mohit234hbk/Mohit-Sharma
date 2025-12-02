@@ -24,6 +24,7 @@
     --project-link-color: #7fceff; /* light blue */
 }
 
+/* Body base */
 body {
     margin: 0;
     background: var(--bg);
@@ -50,38 +51,44 @@ body {
 }
 
 /* ========================= */
-/* HEADER                    */
+/* HEADERS & SUBHEADERS      */
 /* ========================= */
 
-/* Headers with darker outline */
+/* Bigger, stronger black outline + neon glow for all headers and subheaders */
 h1,
-h2 {
+h2,
+h3 {
     color: var(--accent);
-    /* Neon glow + darker outline */
     text-shadow:
-        -1px -1px 0 #000000,
-        1px -1px 0 #000000,
-        -1px 1px 0 #000000,
-        1px 1px 0 #000000,
-        0 0 4px #31e1ff,
-        0 0 6px #31e1ff,
-        0 0 8px #19b8d8;
+        -2px -2px 0 #000000,
+        2px -2px 0 #000000,
+        -2px 2px 0 #000000,
+        2px 2px 0 #000000,
+        0 0 5px #31e1ff,
+        0 0 8px #31e1ff,
+        0 0 12px #19b8d8;
     letter-spacing: 1px;
     margin-bottom: 15px;
 }
 
+/* Specific font sizes and margins */
 h1 {
     font-size: 3.6rem;
-    /* Extra margin for spacing */
     margin-bottom: 20px;
 }
-
 h2 {
     font-size: 2.4rem;
     text-align: center;
     margin-bottom: 30px;
 }
+h3 {
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+}
 
+/* ========================= */
+/* HEADER                    */
+/* ========================= */
 header {
     padding: 110px 20px 90px;
     text-align: center;
@@ -111,14 +118,13 @@ nav a {
     text-decoration: none;
     position: relative;
     padding-bottom: 6px;
-    /* Make font slightly bigger and letter spacing for better clarity */
     font-size: 1rem;
     letter-spacing: 0.04em;
     transition: color 0.3s ease;
 }
 
-/* Neon animated underline - Reusable for all clickable nav links */
-nav a::after {
+/* Neon underline on all clickable links (nav and general anchors) */
+a::after {
     content: "";
     position: absolute;
     left: 0;
@@ -126,12 +132,18 @@ nav a::after {
     height: 2px;
     width: 0%;
     background: var(--neon-underline-color);
-    box-shadow: 0 0 8px var(--neon-underline-color), 0 0 16px var(--neon-underline-color);
+    box-shadow: 0 0 6px var(--neon-underline-color), 0 0 12px var(--neon-underline-color);
     transition: width 0.3s ease;
     border-radius: 2px;
+    pointer-events: none;
 }
 
-nav a:hover::after {
+nav a::after {
+    /* slightly less intense than project links */
+    box-shadow: 0 0 6px var(--neon-underline-color);
+}
+
+a:hover::after {
     width: 100%;
 }
 
@@ -152,26 +164,14 @@ a.project-link {
     transition: color 0.3s ease;
 }
 
-/* Animated neon underline for project links */
+/* Project links have stronger neon glow underline */
 a.project-link::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 2px;
-    width: 0%;
     background: var(--project-link-color);
     box-shadow: 0 0 8px var(--project-link-color), 0 0 16px var(--project-link-color);
-    transition: width 0.3s ease;
-    border-radius: 2px;
-}
-
-a.project-link:hover::after {
-    width: 100%;
 }
 
 a.project-link:hover {
-    color: #a6d8ff; /* slightly lighter on hover */
+    color: #a6d8ff; /* lighter on hover */
 }
 
 /* ========================= */
@@ -211,10 +211,7 @@ a.project-link:hover {
 }
 
 .card h3 {
-    margin: 0 0 12px 0;
-    color: var(--accent);
-    text-shadow: var(--accent-glow);
-    font-size: 1.5rem;
+    /* Already styled above with outline + glow */
 }
 
 /* ========================= */
@@ -239,12 +236,6 @@ a.project-link:hover {
 .skill-box:hover {
     border-color: var(--accent);
     box-shadow: var(--accent-glow);
-}
-
-.skill-box h3 {
-    color: var(--accent);
-    margin: 0 0 12px 0;
-    text-shadow: var(--accent-glow);
 }
 
 /* ========================= */
@@ -365,8 +356,7 @@ p {
             <p><i>In Development — Yet to be Released</i></p>
             <p>An immersive RPG featuring exploration, combat, puzzles, merchants, inventory systems and AI-driven encounters.</p>
             <p><b>Link:</b>
-                <a class="project-link" href="https://drive.google.com/drive/folders/1qUa0dzF_i9TLK-EEAjVo16XHSIsQ5mMS" target="_blank"
-                    rel="noopener noreferrer">
+                <a class="project-link" href="https://drive.google.com/drive/folders/1qUa0dzF_i9TLK-EEAjVo16XHSIsQ5mMS" target="_blank" rel="noopener noreferrer">
                     Gameplay Video
                 </a>
             </p>
@@ -377,8 +367,7 @@ p {
             <h3 class="neon">Royal Maratha (VR)</h3>
             <p>A VR combat arena experience with swordplay, enemy waves, projectiles, and immersive interactions.</p>
             <p><b>Link:</b>
-                <a class="project-link" href="https://youtu.be/-hoqSp7TJNY?si=YIb9zlDXF9-o0D-O" target="_blank"
-                    rel="noopener noreferrer">
+                <a class="project-link" href="https://youtu.be/-hoqSp7TJNY?si=YIb9zlDXF9-o0D-O" target="_blank" rel="noopener noreferrer">
                     Gameplay Video
                 </a>
             </p>
@@ -389,8 +378,7 @@ p {
             <h3 class="neon">Nostril Cheese Chase</h3>
             <p>An endless runner featuring tight controls, vibrant VFX, custom skins, and cloud save support.</p>
             <p><b>Link:</b>
-                <a class="project-link" href="https://play.google.com/store/apps/details?id=com.cheesechase&pcampaignid=web_share"
-                    target="_blank" rel="noopener noreferrer">
+                <a class="project-link" href="https://play.google.com/store/apps/details?id=com.cheesechase&pcampaignid=web_share" target="_blank" rel="noopener noreferrer">
                     Play Store
                 </a>
             </p>
@@ -412,8 +400,7 @@ p {
             <h3 class="neon">Fairytale Frenzy</h3>
             <p>A magical Match-3 experience integrated with avatar creation, referral systems, and social mechanics.</p>
             <p><b>Link:</b>
-                <a class="project-link" href="https://play.google.com/store/apps/details?id=com.tymediaus.fairytale&pcampaignid=web_share"
-                    target="_blank" rel="noopener noreferrer">
+                <a class="project-link" href="https://play.google.com/store/apps/details?id=com.tymediaus.fairytale&pcampaignid=web_share" target="_blank" rel="noopener noreferrer">
                     Play Store
                 </a>
             </p>
@@ -424,8 +411,7 @@ p {
             <h3 class="neon">Word Wrap</h3>
             <p>A multiplayer word puzzle offering smooth UI transitions and fast-paced online sessions.</p>
             <p><b>Link:</b>
-                <a class="project-link" href="https://play.google.com/store/apps/details?id=com.BazanEnterprises.WordWrap&pcampaignid=web_share"
-                    target="_blank" rel="noopener noreferrer">
+                <a class="project-link" href="https://play.google.com/store/apps/details?id=com.BazanEnterprises.WordWrap&pcampaignid=web_share" target="_blank" rel="noopener noreferrer">
                     Play Store
                 </a>
             </p>
@@ -436,8 +422,7 @@ p {
             <h3 class="neon">Hunt and Escape</h3>
             <p>A scavenger-hunt quest featuring riddles, clues, exploration, and multi-stage progression.</p>
             <p><b>Link:</b>
-                <a class="project-link" href="https://play.google.com/store/apps/details?id=com.RanaItinerans.HuntAndEscape&pcampaignid=web_share"
-                    target="_blank" rel="noopener noreferrer">
+                <a class="project-link" href="https://play.google.com/store/apps/details?id=com.RanaItinerans.HuntAndEscape&pcampaignid=web_share" target="_blank" rel="noopener noreferrer">
                     Play Store
                 </a>
             </p>
@@ -448,8 +433,7 @@ p {
             <h3 class="neon">Blueberry Games</h3>
             <p>A casual game collection featuring reusable systems, modular UI, and live content updates.</p>
             <p><b>Link:</b>
-                <a class="project-link" href="https://play.google.com/store/apps/details?id=com.novotraxcorp.blueberrygames&pcampaignid=web_share"
-                    target="_blank" rel="noopener noreferrer">
+                <a class="project-link" href="https://play.google.com/store/apps/details?id=com.novotraxcorp.blueberrygames&pcampaignid=web_share" target="_blank" rel="noopener noreferrer">
                     Play Store
                 </a>
             </p>

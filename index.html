@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Mohit Sharma | Game Developer Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
 
 <style>
 /* ========================= */
@@ -20,6 +20,7 @@
     --text: #e8faff;
     --muted: #7ca3b0;
     --link-light: #92efff;
+    --neon-underline-color: #31e1ff;
 }
 
 body {
@@ -33,10 +34,19 @@ body {
 
 /* Fade + Slide animation */
 @keyframes fadeSlide {
-    0% { opacity: 0; transform: translateY(40px); }
-    100% { opacity: 1; transform: translateY(0); }
+    0% {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
-.fade { opacity: 0; animation: fadeSlide 1.2s ease forwards; }
+.fade {
+    opacity: 0;
+    animation: fadeSlide 1.2s ease forwards;
+}
 
 /* ========================= */
 /* HEADER                    */
@@ -49,18 +59,30 @@ header {
     border-bottom: 1px solid #0c1a24;
 }
 
-/* CLEAN + SHARP HEADER GLOW */
+/* CLEAN + SHARP HEADER GLOW - Outline style, less blurry, crisp edges */
+h1,
+h2 {
+    color: var(--accent);
+    /* Using multiple sharp shadows to create neon outline */
+    text-shadow:
+        0 0 2px #31e1ff,
+        0 0 4px #31e1ff,
+        0 0 6px #19b8d8,
+        0 0 8px #19b8d8;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
 h1 {
     font-size: 3.6rem;
-    margin-bottom: 15px;
-    color: var(--accent);
+    /* Extra margin for spacing */
+    margin-bottom: 20px;
+}
 
-    /* NEW CLEAN GLOW — minimal blur, crisp edges */
-    text-shadow:
-        0 0 4px #31e1ff,
-        0 0 8px #31e1ff,
-        0 0 12px #19b8d8;
-    letter-spacing: 1px;
+h2 {
+    font-size: 2.4rem;
+    text-align: center;
+    margin-bottom: 30px;
 }
 
 /* ========================= */
@@ -84,22 +106,45 @@ nav a {
     font-weight: 600;
     text-decoration: none;
     position: relative;
-    padding-bottom: 4px;
-    transition: 0.3s ease;
+    padding-bottom: 6px;
+    /* Make font slightly bigger and letter spacing for better clarity */
+    font-size: 1rem;
+    letter-spacing: 0.04em;
+    transition: color 0.3s ease;
 }
 
-/* NAV underline */
+/* Neon animated underline - Reusable for all clickable links */
+a.project-link,
+nav a {
+    --underline-height: 2px;
+    --underline-color: var(--neon-underline-color);
+    --underline-glow: 0 0 8px var(--underline-color), 0 0 16px var(--underline-color);
+}
+
+/* Animated neon underline */
+a.project-link::after,
 nav a::after {
     content: "";
     position: absolute;
     left: 0;
-    bottom: -2px;
-    height: 2px;
+    bottom: 0;
+    height: var(--underline-height);
     width: 0%;
-    background: var(--accent);
+    background: var(--underline-color);
+    box-shadow: var(--underline-glow);
     transition: width 0.3s ease;
+    border-radius: 2px;
 }
-nav a:hover::after { width: 100%; }
+
+a.project-link:hover::after,
+nav a:hover::after {
+    width: 100%;
+}
+
+a.project-link:hover,
+nav a:hover {
+    color: var(--accent-soft);
+}
 
 /* ========================= */
 /* SECTIONS                  */
@@ -109,14 +154,6 @@ nav a:hover::after { width: 100%; }
     width: 90%;
     max-width: 1200px;
     margin: 70px auto;
-}
-
-h2 {
-    font-size: 2.4rem;
-    text-align: center;
-    color: var(--accent);
-    text-shadow: var(--accent-glow);
-    margin-bottom: 30px;
 }
 
 /* ========================= */
@@ -183,35 +220,6 @@ h2 {
 }
 
 /* ========================= */
-/* CLEAN GLOW UNDERLINE FOR PROJECT LINKS */
-/* ========================= */
-
-.project-link {
-    color: var(--link-light);
-    font-weight: 600;
-    text-decoration: none;
-    position: relative;
-    padding-bottom: 3px;
-}
-
-/* Animated underline */
-.project-link::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -1px;
-    height: 2px;
-    width: 0%;
-    background: var(--accent-soft);
-    box-shadow: 0 0 6px var(--accent-soft);
-    transition: width 0.28s ease;
-}
-
-.project-link:hover::after {
-    width: 100%;
-}
-
-/* ========================= */
 /* FOOTER                    */
 /* ========================= */
 
@@ -221,13 +229,41 @@ footer {
     color: var(--muted);
     margin-top: 70px;
     border-top: 1px solid #0b1b27;
+    font-size: 0.9rem;
 }
 
+/* ========================= */
+/* ADDITIONAL MINOR TWEAKS    */
+/* ========================= */
+
+p {
+    font-size: 1.05rem;
+    max-width: 830px;
+    margin: 0 auto 1.5em;
+    color: var(--text);
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    header {
+        padding: 80px 15px 60px;
+    }
+    h1 {
+        font-size: 2.8rem;
+    }
+    h2 {
+        font-size: 2rem;
+    }
+    nav a {
+        margin: 0 14px;
+        font-size: 0.9rem;
+        padding-bottom: 4px;
+    }
+}
 </style>
 </head>
 
 <body>
-
 <header class="fade">
     <h1>Mohit Sharma</h1>
     <div>Unity Game Developer — Mobile • VR • Multiplayer • WebGL</div>
@@ -243,173 +279,171 @@ footer {
 </nav>
 
 <section id="about" class="section fade">
-<h2>About Me</h2>
-<p style="text-align:center; max-width:830px; margin:auto;">
-I build gameplay systems that feel responsive, polished, and alive — from combat and AI to UI flow,
-VR interactions, and multiplayer logic. I thrive on making player actions feel rewarding and immersive.
-</p>
+    <h2>About Me</h2>
+    <p style="text-align:center;">
+        I build gameplay systems that feel responsive, polished, and alive — from combat and AI to UI flow,
+        VR interactions, and multiplayer logic. I thrive on making player actions feel rewarding and immersive.
+    </p>
 </section>
 
 <section id="skills" class="section fade">
-<h2>Core Skills</h2>
+    <h2>Core Skills</h2>
 
-<div class="skills-grid">
+    <div class="skills-grid">
+        <div class="skill-box">
+            <h3>Programming</h3>
+            <p>C#, Java, C++</p>
+        </div>
 
-    <div class="skill-box">
-        <h3>Programming</h3>
-        <p>C#, Java, C++</p>
+        <div class="skill-box">
+            <h3>Game Systems</h3>
+            <p>
+                Combat Systems, AI Behaviors, Animation State Machines,  
+                Inventory,  
+                Dialogue & Quest Flow, Save/Load Architecture,  
+                Weapon System, Gameplay Prototyping
+            </p>
+        </div>
+
+        <div class="skill-box">
+            <h3>Tools</h3>
+            <p>Unity 3D, Visual Studio</p>
+        </div>
+
+        <div class="skill-box">
+            <h3>Multiplayer</h3>
+            <p>Colyseus, Photon, Netcode</p>
+        </div>
+
+        <div class="skill-box">
+            <h3>SDKs</h3>
+            <p>Firebase, Branch IO, ReadyPlayerMe, XR Toolkit</p>
+        </div>
+
+        <div class="skill-box">
+            <h3>Version Control</h3>
+            <p>GitHub, Bitbucket, Plastic SCM</p>
+        </div>
     </div>
-
-    <div class="skill-box">
-        <h3>Game Systems</h3>
-        <p>
-        Combat Systems, AI Behaviors, Enemy States,  
-        Animation State Machines, Ability Systems,  
-        Inventory & Crafting, Interaction Systems,  
-        Dialogue Systems, Quest Flow, Save/Load Architecture,  
-        Procedural Spawns, Camera Systems,  
-        UI/UX Micro-interactions, Level Triggers,  
-        Physics-based Systems, Juice & Feedback,  
-        Gameplay Prototyping
-        </p>
-    </div>
-
-    <div class="skill-box">
-        <h3>Tools</h3>
-        <p>Unity 3D, Visual Studio</p>
-    </div>
-
-    <div class="skill-box">
-        <h3>Multiplayer</h3>
-        <p>Colyseus, Photon, Netcode</p>
-    </div>
-
-    <div class="skill-box">
-        <h3>SDKs</h3>
-        <p>Firebase, Branch IO, ReadyPlayerMe, XR Toolkit</p>
-    </div>
-
-    <div class="skill-box">
-        <h3>Version Control</h3>
-        <p>GitHub, Bitbucket, Plastic SCM</p>
-    </div>
-
-</div>
 </section>
 
 <section id="projects" class="section fade">
-<h2>Projects</h2>
+    <h2>Projects</h2>
 
-<div class="projects">
+    <div class="projects">
+        <!-- NURVEIL -->
+        <div class="card">
+            <h3 class="neon">Nurveil: The Eyes of Light</h3>
+            <p><i>In Development — Yet to be Released</i></p>
+            <p>An immersive RPG featuring exploration, combat, puzzles, merchants, inventory systems and AI-driven encounters.</p>
+            <p><b>Link:</b>
+                <a class="project-link" href="https://drive.google.com/drive/folders/1qUa0dzF_i9TLK-EEAjVo16XHSIsQ5mMS" target="_blank"
+                    rel="noopener noreferrer">
+                    Gameplay Video
+                </a>
+            </p>
+        </div>
 
-    <!-- NURVEIL -->
-    <div class="card">
-        <h3 class="neon">Nurveil: The Eyes of Light</h3>
-        <p><i>In Development — Yet to be Released</i></p>
-        <p>An immersive RPG featuring exploration, combat, puzzles, merchants, inventory systems and AI-driven encounters.</p>
-        <p><b>Link:</b> 
-            <a class="project-link" href="https://drive.google.com/drive/folders/1qUa0dzF_i9TLK-EEAjVo16XHSIsQ5mMS" target="_blank">
-                Gameplay Video
-            </a>
-        </p>
+        <!-- ROYAL MARATHA -->
+        <div class="card">
+            <h3 class="neon">Royal Maratha (VR)</h3>
+            <p>A VR combat arena experience with swordplay, enemy waves, projectiles, and immersive interactions.</p>
+            <p><b>Link:</b>
+                <a class="project-link" href="https://youtu.be/-hoqSp7TJNY?si=YIb9zlDXF9-o0D-O" target="_blank"
+                    rel="noopener noreferrer">
+                    Gameplay Video
+                </a>
+            </p>
+        </div>
+
+        <!-- CHEESE CHASE -->
+        <div class="card">
+            <h3 class="neon">Nostril Cheese Chase</h3>
+            <p>An endless runner featuring tight controls, vibrant VFX, custom skins, and cloud save support.</p>
+            <p><b>Link:</b>
+                <a class="project-link" href="https://play.google.com/store/apps/details?id=com.cheesechase&pcampaignid=web_share"
+                    target="_blank" rel="noopener noreferrer">
+                    Play Store
+                </a>
+            </p>
+        </div>
+
+        <!-- COOKIE GAMER -->
+        <div class="card">
+            <h3 class="neon">Cookie Gamer</h3>
+            <p>A strategy-farming world with upgrades, resource systems, economy, and army-based defense pathways.</p>
+            <p><b>Link:</b>
+                <a class="project-link" href="https://cookiegamer.ca/" target="_blank" rel="noopener noreferrer">
+                    Play Web Version
+                </a>
+            </p>
+        </div>
+
+        <!-- FAIRYTALE FRENZY -->
+        <div class="card">
+            <h3 class="neon">Fairytale Frenzy</h3>
+            <p>A magical Match-3 experience integrated with avatar creation, referral systems, and social mechanics.</p>
+            <p><b>Link:</b>
+                <a class="project-link" href="https://play.google.com/store/apps/details?id=com.tymediaus.fairytale&pcampaignid=web_share"
+                    target="_blank" rel="noopener noreferrer">
+                    Play Store
+                </a>
+            </p>
+        </div>
+
+        <!-- WORD WRAP -->
+        <div class="card">
+            <h3 class="neon">Word Wrap</h3>
+            <p>A multiplayer word puzzle offering smooth UI transitions and fast-paced online sessions.</p>
+            <p><b>Link:</b>
+                <a class="project-link" href="https://play.google.com/store/apps/details?id=com.BazanEnterprises.WordWrap&pcampaignid=web_share"
+                    target="_blank" rel="noopener noreferrer">
+                    Play Store
+                </a>
+            </p>
+        </div>
+
+        <!-- HUNT & ESCAPE -->
+        <div class="card">
+            <h3 class="neon">Hunt and Escape</h3>
+            <p>A scavenger-hunt quest featuring riddles, clues, exploration, and multi-stage progression.</p>
+            <p><b>Link:</b>
+                <a class="project-link" href="https://play.google.com/store/apps/details?id=com.RanaItinerans.HuntAndEscape&pcampaignid=web_share"
+                    target="_blank" rel="noopener noreferrer">
+                    Play Store
+                </a>
+            </p>
+        </div>
+
+        <!-- BLUEBERRY GAMES -->
+        <div class="card">
+            <h3 class="neon">Blueberry Games</h3>
+            <p>A casual game collection featuring reusable systems, modular UI, and live content updates.</p>
+            <p><b>Link:</b>
+                <a class="project-link" href="https://play.google.com/store/apps/details?id=com.novotraxcorp.blueberrygames&pcampaignid=web_share"
+                    target="_blank" rel="noopener noreferrer">
+                    Play Store
+                </a>
+            </p>
+        </div>
     </div>
-
-    <!-- ROYAL MARATHA -->
-    <div class="card">
-        <h3 class="neon">Royal Maratha (VR)</h3>
-        <p>A VR combat arena experience with swordplay, enemy waves, projectiles, and immersive interactions.</p>
-        <p><b>Link:</b>
-            <a class="project-link" href="https://youtu.be/-hoqSp7TJNY?si=YIb9zlDXF9-o0D-O" target="_blank">
-                Gameplay Video
-            </a>
-        </p>
-    </div>
-
-    <!-- CHEESE CHASE -->
-    <div class="card">
-        <h3 class="neon">Nostril Cheese Chase</h3>
-        <p>An endless runner featuring tight controls, vibrant VFX, custom skins, and cloud save support.</p>
-        <p><b>Link:</b> 
-            <a class="project-link" href="https://play.google.com/store/apps/details?id=com.cheesechase&pcampaignid=web_share" target="_blank">
-                Play Store
-            </a>
-        </p>
-    </div>
-
-    <!-- COOKIE GAMER -->
-    <div class="card">
-        <h3 class="neon">Cookie Gamer</h3>
-        <p>A strategy-farming world with upgrades, resource systems, economy, and army-based defense pathways.</p>
-        <p><b>Link:</b> 
-            <a class="project-link" href="https://cookiegamer.ca/" target="_blank">
-                Play Web Version
-            </a>
-        </p>
-    </div>
-
-    <!-- FAIRYTALE FRENZY -->
-    <div class="card">
-        <h3 class="neon">Fairytale Frenzy</h3>
-        <p>A magical Match-3 experience integrated with avatar creation, referral systems, and social mechanics.</p>
-        <p><b>Link:</b> 
-            <a class="project-link" href="https://play.google.com/store/apps/details?id=com.tymediaus.fairytale&pcampaignid=web_share" target="_blank">
-                Play Store
-            </a>
-        </p>
-    </div>
-
-    <!-- WORD WRAP -->
-    <div class="card">
-        <h3 class="neon">Word Wrap</h3>
-        <p>A multiplayer word puzzle offering smooth UI transitions and fast-paced online sessions.</p>
-        <p><b>Link:</b> 
-            <a class="project-link" href="https://play.google.com/store/apps/details?id=com.BazanEnterprises.WordWrap&pcampaignid=web_share" target="_blank">
-                Play Store
-            </a>
-        </p>
-    </div>
-
-    <!-- HUNT & ESCAPE -->
-    <div class="card">
-        <h3 class="neon">Hunt and Escape</h3>
-        <p>A scavenger-hunt quest featuring riddles, clues, exploration, and multi-stage progression.</p>
-        <p><b>Link:</b> 
-            <a class="project-link" href="https://play.google.com/store/apps/details?id=com.RanaItinerans.HuntAndEscape&pcampaignid=web_share" target="_blank">
-                Play Store
-            </a>
-        </p>
-    </div>
-
-    <!-- BLUEBERRY GAMES -->
-    <div class="card">
-        <h3 class="neon">Blueberry Games</h3>
-        <p>A casual game collection featuring reusable systems, modular UI, and live content updates.</p>
-        <p><b>Link:</b> 
-            <a class="project-link" href="https://play.google.com/store/apps/details?id=com.novotraxcorp.blueberrygames&pcampaignid=web_share" target="_blank">
-                Play Store
-            </a>
-        </p>
-    </div>
-
-</div>
 </section>
 
 <section id="experience" class="section fade">
-<h2>Experience</h2>
-<p><strong>Game Developer — Logic Simplified</strong> (2022–Present)</p>
-<p><strong>Game Developer — Blueberry Fun</strong> (2021–2022)</p>
-<p><strong>Game Developer Intern — Green Light Studios</strong> (2020–2021)</p>
+    <h2>Experience</h2>
+    <p><strong>Game Developer — Logic Simplified</strong> (2022–Present)</p>
+    <p><strong>Game Developer — Blueberry Fun</strong> (2021–2022)</p>
+    <p><strong>Game Developer Intern — Green Light Studios</strong> (2020–2021)</p>
 </section>
 
 <section id="education" class="section fade">
-<h2>Education</h2>
-<p>MCA (Game Development) — Jain University, Bengaluru</p>
-<p>BSc (IT) — Sri Dev Suman Uttarakhand University</p>
+    <h2>Education</h2>
+    <p>MCA (Game Development) — Jain University, Bengaluru</p>
+    <p>BSc (IT) — Sri Dev Suman Uttarakhand University</p>
 </section>
 
 <footer>
     © 2025 Mohit Sharma — Unity Game Developer
 </footer>
-
 </body>
 </html>

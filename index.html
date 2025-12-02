@@ -18,7 +18,7 @@
     --accent-glow: 0 0 12px #31e1ff, 0 0 28px #19b8d8;
     --text: #e8faff;
     --muted: #7ca3b0;
-    --link-light: #7fe8ff;   /* ★ NEW LIGHT BLUE LINK COLOR */
+    --link-light: #7fe8ff;  /* LIGHT BLUE CLICKABLE LINKS */
 }
 
 body {
@@ -37,7 +37,7 @@ body {
 }
 .fade { opacity: 0; animation: fadeSlide 1.2s ease forwards; }
 
-/* Neon Utility */
+/* Neon Title Utility */
 .neon {
     color: var(--accent);
     text-shadow: var(--accent-glow);
@@ -58,7 +58,7 @@ h1 {
     text-shadow: var(--accent-glow);
 }
 
-/* NAVBAR */
+/* NAVIGATION */
 nav {
     text-align: center;
     padding: 18px 0;
@@ -155,17 +155,30 @@ h2 {
     text-shadow: var(--accent-glow);
 }
 
-/* LINKS — LIGHT BLUE */
+/* ========================= */
+/*   CLICKABLE LINK PULSE    */
+/* ========================= */
+
 a {
     color: var(--link-light);
     font-weight: 600;
     text-decoration: none;
-    transition: 0.3s ease;
+    position: relative;
+    transition: 0.25s ease;
+    animation: linkPulse 2.2s infinite ease-in-out;
 }
 
 a:hover {
     text-shadow: var(--accent-glow);
-    opacity: 0.9;
+    transform: translateY(-1px);
+    opacity: 1;
+}
+
+/* Soft neon ON/OFF pulsing animation */
+@keyframes linkPulse {
+    0% { text-shadow: 0 0 0px #7fe8ff; }
+    50% { text-shadow: 0 0 12px #7fe8ff, 0 0 25px #31e1ff; }
+    100% { text-shadow: 0 0 0px #7fe8ff; }
 }
 
 /* FOOTER */
@@ -198,8 +211,8 @@ footer {
 <section id="about" class="section fade">
 <h2>About Me</h2>
 <p style="text-align:center; max-width:830px; margin:auto;">
-I craft game systems, interactions, and moment-to-moment gameplay that feel alive and responsive.
-My work spans combat mechanics, AI, UI flow, multiplayer logic, VR interactions, and polished gameplay loops.
+I build gameplay systems that feel responsive, polished, and alive — from combat and AI to UI flow,
+VR interactions, and multiplayer logic. I thrive on making player actions feel rewarding and immersive.
 </p>
 </section>
 
@@ -246,11 +259,11 @@ My work spans combat mechanics, AI, UI flow, multiplayer logic, VR interactions,
 
 <div class="projects">
 
-    <!-- Nurveil -->
+    <!-- NURVEIL -->
     <div class="card">
         <h3 class="neon">Nurveil: The Eyes of Light</h3>
         <p><i>In Development — Yet to be Released</i></p>
-        <p>A deep RPG featuring combat, puzzles, exploration, inventory, merchants, and AI encounters.</p>
+        <p>An immersive RPG featuring exploration, combat, puzzles, merchants, inventory systems, and AI-driven encounters.</p>
         <p><b>Link:</b> 
             <a href="https://drive.google.com/drive/folders/1qUa0dzF_i9TLK-EEAjVo16XHSIsQ5mMS" target="_blank">
                 Gameplay Video
@@ -258,10 +271,10 @@ My work spans combat mechanics, AI, UI flow, multiplayer logic, VR interactions,
         </p>
     </div>
 
-    <!-- Royal Maratha -->
+    <!-- ROYAL MARATHA -->
     <div class="card">
         <h3 class="neon">Royal Maratha (VR)</h3>
-        <p>A full VR sword combat experience featuring realistic movement and intense enemy waves.</p>
+        <p>A VR combat arena experience with swordplay, enemy waves, projectiles, and immersive interactions.</p>
         <p><b>Link:</b>
             <a href="https://youtu.be/-hoqSp7TJNY?si=YIb9zlDXF9-o0D-O" target="_blank">
                 Gameplay Video
@@ -269,10 +282,10 @@ My work spans combat mechanics, AI, UI flow, multiplayer logic, VR interactions,
         </p>
     </div>
 
-    <!-- Cheese Chase -->
+    <!-- CHEESE CHASE -->
     <div class="card">
         <h3 class="neon">Nostril Cheese Chase</h3>
-        <p>An endless runner with polished movement, effects, customization, and cloud saving.</p>
+        <p>An endless runner featuring tight controls, vibrant VFX, custom skins, and cloud save support.</p>
         <p><b>Link:</b> 
             <a href="https://play.google.com/store/apps/details?id=com.cheesechase&pcampaignid=web_share" target="_blank">
                 Play Store
@@ -280,10 +293,10 @@ My work spans combat mechanics, AI, UI flow, multiplayer logic, VR interactions,
         </p>
     </div>
 
-    <!-- Cookie Gamer -->
+    <!-- COOKIE GAMER -->
     <div class="card">
         <h3 class="neon">Cookie Gamer</h3>
-        <p>A farming-strategy world with resources, upgrades, economy, and army-defense mechanics.</p>
+        <p>A strategy-farming world with upgrades, resource systems, economy, and army-based defense pathways.</p>
         <p><b>Link:</b> 
             <a href="https://cookiegamer.ca/" target="_blank">
                 Play Web Version
@@ -291,10 +304,10 @@ My work spans combat mechanics, AI, UI flow, multiplayer logic, VR interactions,
         </p>
     </div>
 
-    <!-- Fairytale Frenzy -->
+    <!-- FAIRYTALE FRENZY -->
     <div class="card">
         <h3 class="neon">Fairytale Frenzy</h3>
-        <p>A stylized Match-3 game enhanced with avatars, referral systems, and social features.</p>
+        <p>A magical Match-3 experience integrated with avatar creation, referral systems, and social mechanics.</p>
         <p><b>Link:</b> 
             <a href="https://play.google.com/store/apps/details?id=com.tymediaus.fairytale&pcampaignid=web_share" target="_blank">
                 Play Store
@@ -302,10 +315,10 @@ My work spans combat mechanics, AI, UI flow, multiplayer logic, VR interactions,
         </p>
     </div>
 
-    <!-- Word Wrap -->
+    <!-- WORD WRAP -->
     <div class="card">
         <h3 class="neon">Word Wrap</h3>
-        <p>A multiplayer word puzzle with smooth UI flow and fast-paced real-time gameplay.</p>
+        <p>A multiplayer word puzzle offering smooth UI transitions and fast-paced online sessions.</p>
         <p><b>Link:</b> 
             <a href="https://play.google.com/store/apps/details?id=com.BazanEnterprises.WordWrap&pcampaignid=web_share" target="_blank">
                 Play Store
@@ -313,10 +326,10 @@ My work spans combat mechanics, AI, UI flow, multiplayer logic, VR interactions,
         </p>
     </div>
 
-    <!-- Hunt And Escape -->
+    <!-- HUNT & ESCAPE -->
     <div class="card">
         <h3 class="neon">Hunt and Escape</h3>
-        <p>A scavenger hunt adventure featuring riddles, exploration, clues, and multi-stage progression.</p>
+        <p>A scavenger-hunt quest featuring riddles, clues, exploration, and multi-stage progression.</p>
         <p><b>Link:</b> 
             <a href="https://play.google.com/store/apps/details?id=com.RanaItinerans.HuntAndEscape&pcampaignid=web_share" target="_blank">
                 Play Store
@@ -324,10 +337,10 @@ My work spans combat mechanics, AI, UI flow, multiplayer logic, VR interactions,
         </p>
     </div>
 
-    <!-- Blueberry Games -->
+    <!-- BLUEBERRY GAMES -->
     <div class="card">
         <h3 class="neon">Blueberry Games</h3>
-        <p>A multi-game platform featuring casual games, reusable systems, and live content delivery.</p>
+        <p>A casual game collection featuring reusable systems, modular UI, and live content updates.</p>
         <p><b>Link:</b> 
             <a href="https://play.google.com/store/apps/details?id=com.novotraxcorp.blueberrygames&pcampaignid=web_share" target="_blank">
                 Play Store
@@ -348,7 +361,7 @@ My work spans combat mechanics, AI, UI flow, multiplayer logic, VR interactions,
 <section id="education" class="section fade">
 <h2>Education</h2>
 <p>MCA (Game Development) — Jain University, Bengaluru</p>
-<p>BSc (IT) — SDS Uttarakhand University</p>
+<p>BSc (IT) — Sri Dev Suman Uttarakhand University</p>
 </section>
 
 <footer>

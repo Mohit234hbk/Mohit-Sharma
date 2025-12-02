@@ -15,10 +15,11 @@
     --bg: #03070c;
     --panel: #0b0f17;
     --accent: #31e1ff;
-    --accent-glow: 0 0 12px #31e1ff, 0 0 28px #19b8d8;
+    --accent-soft: #6fe3ff;
+    --accent-glow: 0 0 8px #31e1ff, 0 0 16px #19b8d8;
     --text: #e8faff;
     --muted: #7ca3b0;
-    --link-light: #7fe8ff;
+    --link-light: #92efff;
 }
 
 body {
@@ -37,32 +38,35 @@ body {
 }
 .fade { opacity: 0; animation: fadeSlide 1.2s ease forwards; }
 
-/* Neon Title Utility */
-.neon {
-    color: var(--accent);
-    text-shadow: var(--accent-glow);
-}
+/* ========================= */
+/* HEADER                    */
+/* ========================= */
 
-/* HEADER */
 header {
     padding: 110px 20px 90px;
     text-align: center;
-    background: radial-gradient(circle at top, #09111c, #03070c 70%);
+    background: radial-gradient(circle at top, #0a131c, #03070c 70%);
     border-bottom: 1px solid #0c1a24;
 }
 
-/* CRISP HEADER GLOW */
+/* CLEAN + SHARP HEADER GLOW */
 h1 {
-    font-size: 3.4rem;
+    font-size: 3.6rem;
     margin-bottom: 15px;
     color: var(--accent);
+
+    /* NEW CLEAN GLOW — minimal blur, crisp edges */
     text-shadow:
-        0 0 6px #31e1ff,
-        0 0 12px #31e1ff,
-        0 0 20px #19b8d8;
+        0 0 4px #31e1ff,
+        0 0 8px #31e1ff,
+        0 0 12px #19b8d8;
+    letter-spacing: 1px;
 }
 
-/* NAVIGATION */
+/* ========================= */
+/* NAVIGATION                */
+/* ========================= */
+
 nav {
     text-align: center;
     padding: 18px 0;
@@ -84,7 +88,7 @@ nav a {
     transition: 0.3s ease;
 }
 
-/* NAV Underline Animation */
+/* NAV underline */
 nav a::after {
     content: "";
     position: absolute;
@@ -95,12 +99,12 @@ nav a::after {
     background: var(--accent);
     transition: width 0.3s ease;
 }
+nav a:hover::after { width: 100%; }
 
-nav a:hover::after {
-    width: 100%;
-}
+/* ========================= */
+/* SECTIONS                  */
+/* ========================= */
 
-/* SECTIONS */
 .section {
     width: 90%;
     max-width: 1200px;
@@ -115,7 +119,10 @@ h2 {
     margin-bottom: 30px;
 }
 
-/* PROJECT GRID */
+/* ========================= */
+/* PROJECT GRID              */
+/* ========================= */
+
 .projects {
     display: grid;
     gap: 40px;
@@ -145,7 +152,10 @@ h2 {
     font-size: 1.5rem;
 }
 
-/* SKILLS GRID */
+/* ========================= */
+/* SKILLS GRID               */
+/* ========================= */
+
 .skills-grid {
     display: grid;
     gap: 25px;
@@ -172,8 +182,11 @@ h2 {
     text-shadow: var(--accent-glow);
 }
 
-/* CLICKABLE LINKS — ANIMATED UNDERLINE */
-a {
+/* ========================= */
+/* CLEAN GLOW UNDERLINE FOR PROJECT LINKS */
+/* ========================= */
+
+.project-link {
     color: var(--link-light);
     font-weight: 600;
     text-decoration: none;
@@ -181,23 +194,27 @@ a {
     padding-bottom: 3px;
 }
 
-/* Underline Animation */
-a::after {
+/* Animated underline */
+.project-link::after {
     content: "";
     position: absolute;
     left: 0;
     bottom: -1px;
     height: 2px;
     width: 0%;
-    background: var(--accent);
+    background: var(--accent-soft);
+    box-shadow: 0 0 6px var(--accent-soft);
     transition: width 0.28s ease;
 }
 
-a:hover::after {
+.project-link:hover::after {
     width: 100%;
 }
 
-/* FOOTER */
+/* ========================= */
+/* FOOTER                    */
+/* ========================= */
+
 footer {
     text-align: center;
     padding: 40px;
@@ -205,6 +222,7 @@ footer {
     margin-top: 70px;
     border-top: 1px solid #0b1b27;
 }
+
 </style>
 </head>
 
@@ -249,9 +267,9 @@ VR interactions, and multiplayer logic. I thrive on making player actions feel r
         Animation State Machines, Ability Systems,  
         Inventory & Crafting, Interaction Systems,  
         Dialogue Systems, Quest Flow, Save/Load Architecture,  
-        Procedural Spawn Systems, Camera Systems,  
-        UI/UX Micro-interactions, Level Flow & Triggers,  
-        Physics-based Systems, Feedback & Game Juice,  
+        Procedural Spawns, Camera Systems,  
+        UI/UX Micro-interactions, Level Triggers,  
+        Physics-based Systems, Juice & Feedback,  
         Gameplay Prototyping
         </p>
     </div>
@@ -288,9 +306,9 @@ VR interactions, and multiplayer logic. I thrive on making player actions feel r
     <div class="card">
         <h3 class="neon">Nurveil: The Eyes of Light</h3>
         <p><i>In Development — Yet to be Released</i></p>
-        <p>An immersive RPG featuring exploration, combat, puzzles, merchants, inventory systems, and AI-driven encounters.</p>
+        <p>An immersive RPG featuring exploration, combat, puzzles, merchants, inventory systems and AI-driven encounters.</p>
         <p><b>Link:</b> 
-            <a href="https://drive.google.com/drive/folders/1qUa0dzF_i9TLK-EEAjVo16XHSIsQ5mMS" target="_blank">
+            <a class="project-link" href="https://drive.google.com/drive/folders/1qUa0dzF_i9TLK-EEAjVo16XHSIsQ5mMS" target="_blank">
                 Gameplay Video
             </a>
         </p>
@@ -301,7 +319,7 @@ VR interactions, and multiplayer logic. I thrive on making player actions feel r
         <h3 class="neon">Royal Maratha (VR)</h3>
         <p>A VR combat arena experience with swordplay, enemy waves, projectiles, and immersive interactions.</p>
         <p><b>Link:</b>
-            <a href="https://youtu.be/-hoqSp7TJNY?si=YIb9zlDXF9-o0D-O" target="_blank">
+            <a class="project-link" href="https://youtu.be/-hoqSp7TJNY?si=YIb9zlDXF9-o0D-O" target="_blank">
                 Gameplay Video
             </a>
         </p>
@@ -312,7 +330,7 @@ VR interactions, and multiplayer logic. I thrive on making player actions feel r
         <h3 class="neon">Nostril Cheese Chase</h3>
         <p>An endless runner featuring tight controls, vibrant VFX, custom skins, and cloud save support.</p>
         <p><b>Link:</b> 
-            <a href="https://play.google.com/store/apps/details?id=com.cheesechase&pcampaignid=web_share" target="_blank">
+            <a class="project-link" href="https://play.google.com/store/apps/details?id=com.cheesechase&pcampaignid=web_share" target="_blank">
                 Play Store
             </a>
         </p>
@@ -323,7 +341,7 @@ VR interactions, and multiplayer logic. I thrive on making player actions feel r
         <h3 class="neon">Cookie Gamer</h3>
         <p>A strategy-farming world with upgrades, resource systems, economy, and army-based defense pathways.</p>
         <p><b>Link:</b> 
-            <a href="https://cookiegamer.ca/" target="_blank">
+            <a class="project-link" href="https://cookiegamer.ca/" target="_blank">
                 Play Web Version
             </a>
         </p>
@@ -334,7 +352,7 @@ VR interactions, and multiplayer logic. I thrive on making player actions feel r
         <h3 class="neon">Fairytale Frenzy</h3>
         <p>A magical Match-3 experience integrated with avatar creation, referral systems, and social mechanics.</p>
         <p><b>Link:</b> 
-            <a href="https://play.google.com/store/apps/details?id=com.tymediaus.fairytale&pcampaignid=web_share" target="_blank">
+            <a class="project-link" href="https://play.google.com/store/apps/details?id=com.tymediaus.fairytale&pcampaignid=web_share" target="_blank">
                 Play Store
             </a>
         </p>
@@ -345,7 +363,7 @@ VR interactions, and multiplayer logic. I thrive on making player actions feel r
         <h3 class="neon">Word Wrap</h3>
         <p>A multiplayer word puzzle offering smooth UI transitions and fast-paced online sessions.</p>
         <p><b>Link:</b> 
-            <a href="https://play.google.com/store/apps/details?id=com.BazanEnterprises.WordWrap&pcampaignid=web_share" target="_blank">
+            <a class="project-link" href="https://play.google.com/store/apps/details?id=com.BazanEnterprises.WordWrap&pcampaignid=web_share" target="_blank">
                 Play Store
             </a>
         </p>
@@ -356,7 +374,7 @@ VR interactions, and multiplayer logic. I thrive on making player actions feel r
         <h3 class="neon">Hunt and Escape</h3>
         <p>A scavenger-hunt quest featuring riddles, clues, exploration, and multi-stage progression.</p>
         <p><b>Link:</b> 
-            <a href="https://play.google.com/store/apps/details?id=com.RanaItinerans.HuntAndEscape&pcampaignid=web_share" target="_blank">
+            <a class="project-link" href="https://play.google.com/store/apps/details?id=com.RanaItinerans.HuntAndEscape&pcampaignid=web_share" target="_blank">
                 Play Store
             </a>
         </p>
@@ -367,7 +385,7 @@ VR interactions, and multiplayer logic. I thrive on making player actions feel r
         <h3 class="neon">Blueberry Games</h3>
         <p>A casual game collection featuring reusable systems, modular UI, and live content updates.</p>
         <p><b>Link:</b> 
-            <a href="https://play.google.com/store/apps/details?id=com.novotraxcorp.blueberrygames&pcampaignid=web_share" target="_blank">
+            <a class="project-link" href="https://play.google.com/store/apps/details?id=com.novotraxcorp.blueberrygames&pcampaignid=web_share" target="_blank">
                 Play Store
             </a>
         </p>

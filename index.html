@@ -7,10 +7,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
 
 <style>
-/* ========================= */
-/* CYBERPUNK VISUAL THEME    */
-/* ========================= */
-
 :root {
     --bg: #03070c;
     --panel: #0b0f17;
@@ -21,10 +17,10 @@
     --muted: #7ca3b0;
     --link-light: #92efff;
     --neon-underline-color: #31e1ff;
-    --project-link-color: #7fceff; /* light blue */
+    --project-link-color: #7fceff;
 }
 
-/* Body base */
+/* Body */
 body {
     margin: 0;
     background: var(--bg);
@@ -50,28 +46,25 @@ body {
     animation: fadeSlide 1.2s ease forwards;
 }
 
-/* ========================= */
-/* HEADERS & SUBHEADERS      */
-/* ========================= */
-
-/* Bigger, stronger black outline + neon glow for all headers and subheaders */
+/* Headers with lighter outline and glow */
 h1,
 h2,
 h3 {
     color: var(--accent);
+    /* Lighter black outline and glow */
     text-shadow:
-        -2px -2px 0 #000000,
-        2px -2px 0 #000000,
-        -2px 2px 0 #000000,
-        2px 2px 0 #000000,
-        0 0 5px #31e1ff,
-        0 0 8px #31e1ff,
-        0 0 12px #19b8d8;
+        -1px -1px 0 #111,
+        1px -1px 0 #111,
+        -1px 1px 0 #111,
+        1px 1px 0 #111,
+        0 0 4px #31e1ff88,
+        0 0 8px #31e1ffaa,
+        0 0 10px #19b8d899;
     letter-spacing: 1px;
     margin-bottom: 15px;
 }
 
-/* Specific font sizes and margins */
+/* Specific font sizes */
 h1 {
     font-size: 3.6rem;
     margin-bottom: 20px;
@@ -86,9 +79,7 @@ h3 {
     margin-bottom: 12px;
 }
 
-/* ========================= */
-/* HEADER                    */
-/* ========================= */
+/* Header */
 header {
     padding: 110px 20px 90px;
     text-align: center;
@@ -96,10 +87,7 @@ header {
     border-bottom: 1px solid #0c1a24;
 }
 
-/* ========================= */
-/* NAVIGATION                */
-/* ========================= */
-
+/* Navigation */
 nav {
     text-align: center;
     padding: 18px 0;
@@ -123,7 +111,7 @@ nav a {
     transition: color 0.3s ease;
 }
 
-/* Neon underline on all clickable links (nav and general anchors) */
+/* Neon underline on all clickable links */
 a::after {
     content: "";
     position: absolute;
@@ -139,7 +127,6 @@ a::after {
 }
 
 nav a::after {
-    /* slightly less intense than project links */
     box-shadow: 0 0 6px var(--neon-underline-color);
 }
 
@@ -151,10 +138,7 @@ nav a:hover {
     color: var(--accent-soft);
 }
 
-/* ========================= */
-/* PROJECT LINKS             */
-/* ========================= */
-
+/* Project Links */
 a.project-link {
     color: var(--project-link-color);
     font-weight: 600;
@@ -164,30 +148,23 @@ a.project-link {
     transition: color 0.3s ease;
 }
 
-/* Project links have stronger neon glow underline */
 a.project-link::after {
     background: var(--project-link-color);
     box-shadow: 0 0 8px var(--project-link-color), 0 0 16px var(--project-link-color);
 }
 
 a.project-link:hover {
-    color: #a6d8ff; /* lighter on hover */
+    color: #a6d8ff;
 }
 
-/* ========================= */
-/* SECTIONS                  */
-/* ========================= */
-
+/* Sections */
 .section {
     width: 90%;
     max-width: 1200px;
     margin: 70px auto;
 }
 
-/* ========================= */
-/* PROJECT GRID              */
-/* ========================= */
-
+/* Project Grid */
 .projects {
     display: grid;
     gap: 40px;
@@ -210,14 +187,7 @@ a.project-link:hover {
     box-shadow: var(--accent-glow);
 }
 
-.card h3 {
-    /* Already styled above with outline + glow */
-}
-
-/* ========================= */
-/* SKILLS GRID               */
-/* ========================= */
-
+/* Skills Grid */
 .skills-grid {
     display: grid;
     gap: 25px;
@@ -238,10 +208,7 @@ a.project-link:hover {
     box-shadow: var(--accent-glow);
 }
 
-/* ========================= */
-/* FOOTER                    */
-/* ========================= */
-
+/* Footer */
 footer {
     text-align: center;
     padding: 40px;
@@ -251,10 +218,7 @@ footer {
     font-size: 0.9rem;
 }
 
-/* ========================= */
-/* ADDITIONAL MINOR TWEAKS    */
-/* ========================= */
-
+/* Minor tweaks */
 p {
     font-size: 1.05rem;
     max-width: 830px;
@@ -262,7 +226,6 @@ p {
     color: var(--text);
 }
 
-/* Responsive adjustments */
 @media (max-width: 600px) {
     header {
         padding: 80px 15px 60px;
@@ -353,7 +316,7 @@ p {
         <!-- NURVEIL -->
         <div class="card">
             <h3 class="neon">Nurveil: The Eyes of Light</h3>
-            <p><i>In Development — Yet to be Released</i></p>
+            <p><i>Released</i></p>
             <p>An immersive RPG featuring exploration, combat, puzzles, merchants, inventory systems and AI-driven encounters.</p>
             <p><b>Link:</b>
                 <a class="project-link" href="https://drive.google.com/drive/folders/1qUa0dzF_i9TLK-EEAjVo16XHSIsQ5mMS" target="_blank" rel="noopener noreferrer">
@@ -365,6 +328,7 @@ p {
         <!-- ROYAL MARATHA -->
         <div class="card">
             <h3 class="neon">Royal Maratha (VR)</h3>
+            <p><i>Internal Platform</i></p>
             <p>A VR combat arena experience with swordplay, enemy waves, projectiles, and immersive interactions.</p>
             <p><b>Link:</b>
                 <a class="project-link" href="https://youtu.be/-hoqSp7TJNY?si=YIb9zlDXF9-o0D-O" target="_blank" rel="noopener noreferrer">
@@ -376,6 +340,7 @@ p {
         <!-- CHEESE CHASE -->
         <div class="card">
             <h3 class="neon">Nostril Cheese Chase</h3>
+            <p><i>iOS and Play Store</i></p>
             <p>An endless runner featuring tight controls, vibrant VFX, custom skins, and cloud save support.</p>
             <p><b>Link:</b>
                 <a class="project-link" href="https://play.google.com/store/apps/details?id=com.cheesechase&pcampaignid=web_share" target="_blank" rel="noopener noreferrer">
@@ -387,6 +352,7 @@ p {
         <!-- COOKIE GAMER -->
         <div class="card">
             <h3 class="neon">Cookie Gamer</h3>
+            <p><i>Released on Web</i></p>
             <p>A strategy-farming world with upgrades, resource systems, economy, and army-based defense pathways.</p>
             <p><b>Link:</b>
                 <a class="project-link" href="https://cookiegamer.ca/" target="_blank" rel="noopener noreferrer">
@@ -398,6 +364,7 @@ p {
         <!-- FAIRYTALE FRENZY -->
         <div class="card">
             <h3 class="neon">Fairytale Frenzy</h3>
+            <p><i>iOS and Play Store</i></p>
             <p>A magical Match-3 experience integrated with avatar creation, referral systems, and social mechanics.</p>
             <p><b>Link:</b>
                 <a class="project-link" href="https://play.google.com/store/apps/details?id=com.tymediaus.fairytale&pcampaignid=web_share" target="_blank" rel="noopener noreferrer">
@@ -409,6 +376,7 @@ p {
         <!-- WORD WRAP -->
         <div class="card">
             <h3 class="neon">Word Wrap</h3>
+            <p><i>iOS and Play Store</i></p>
             <p>A multiplayer word puzzle offering smooth UI transitions and fast-paced online sessions.</p>
             <p><b>Link:</b>
                 <a class="project-link" href="https://play.google.com/store/apps/details?id=com.BazanEnterprises.WordWrap&pcampaignid=web_share" target="_blank" rel="noopener noreferrer">
@@ -420,6 +388,7 @@ p {
         <!-- HUNT & ESCAPE -->
         <div class="card">
             <h3 class="neon">Hunt and Escape</h3>
+            <p><i>iOS and Play Store</i></p>
             <p>A scavenger-hunt quest featuring riddles, clues, exploration, and multi-stage progression.</p>
             <p><b>Link:</b>
                 <a class="project-link" href="https://play.google.com/store/apps/details?id=com.RanaItinerans.HuntAndEscape&pcampaignid=web_share" target="_blank" rel="noopener noreferrer">
@@ -431,6 +400,7 @@ p {
         <!-- BLUEBERRY GAMES -->
         <div class="card">
             <h3 class="neon">Blueberry Games</h3>
+            <p><i>iOS and Play Store</i></p>
             <p>A casual game collection featuring reusable systems, modular UI, and live content updates.</p>
             <p><b>Link:</b>
                 <a class="project-link" href="https://play.google.com/store/apps/details?id=com.novotraxcorp.blueberrygames&pcampaignid=web_share" target="_blank" rel="noopener noreferrer">

@@ -7,115 +7,198 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-    :root {
-        --bg: #0c0c0c;
-        --panel: #141414;
-        --accent: #46c6ff;
-        --text: #eaeaea;
-        --muted: #999;
-    }
-    body {
-        margin:0;
-        background:var(--bg);
-        font-family:"Inter",sans-serif;
-        color:var(--text);
-        line-height:1.7;
-    }
-    header {
-        padding:90px 20px;
-        text-align:center;
-        background:linear-gradient(140deg,#0f0f0f,#1a1a1a);
-        border-bottom:1px solid #222;
-    }
-    h1 {font-size:3rem;margin-bottom:10px;}
-    .subtitle {opacity:.75;font-size:1.1rem;}
+/* ========================= */
+/* CYBERPUNK THEME + COLORS  */
+/* ========================= */
 
-    nav {
-        text-align:center;
-        padding:20px;
-        background:#0d0d0d;
-        border-bottom:1px solid #1a1a1a;
-    }
+:root {
+    --bg: #03070c;
+    --panel: #0b0f17;
+    --accent: #31e1ff;
+    --accent-glow: 0 0 12px #31e1ff, 0 0 24px #1cc9ff;
+    --text: #e8faff;
+    --muted: #7ca3b0;
+}
 
-    nav a {
-        margin:0 15px;
-        font-weight:600;
-        color:var(--accent);
-        text-decoration:none;
-    }
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Inter", sans-serif;
+    line-height: 1.7;
+    overflow-x: hidden;
+}
 
-    .section {
-        width:90%;
-        max-width:1100px;
-        margin:60px auto;
-    }
+/* ====== Neon Glow Utility ====== */
+.neon {
+    color: var(--accent);
+    text-shadow: var(--accent-glow);
+}
 
-    h2 {
-        font-size:2rem;
-        margin-bottom:20px;
-        text-align:center;
-    }
+/* ====== Smooth Fade + Slide Animation ====== */
+@keyframes fadeSlideUp {
+    0% { opacity: 0; transform: translateY(40px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
 
-    /* PROJECT GRID */
-    .projects {
-        display:grid;
-        gap:30px;
-        grid-template-columns:repeat(auto-fit,minmax(330px,1fr));
-        margin-top:40px;
-    }
+.fade-in {
+    opacity: 0;
+    animation: fadeSlideUp 1.2s ease forwards;
+}
 
-    .card {
-        background:var(--panel);
-        border:1px solid #222;
-        padding:25px;
-        border-radius:16px;
-        transition:.3s;
-    }
-    .card:hover {transform:translateY(-5px);border-color:#444;}
+/* ===== Header ===== */
 
-    .role {font-size:.9rem;color:var(--muted);margin-bottom:10px;}
-    .tech {font-size:.9rem;color:var(--accent);margin-bottom:15px;}
+header {
+    padding: 100px 20px;
+    text-align: center;
+    background: radial-gradient(circle at top, #09111c, #03070c 70%);
+    border-bottom: 1px solid #0c1a24;
+}
 
-    a {color:var(--accent);}
-    a:hover {opacity:.8;}
+h1 {
+    font-size: 3.2rem;
+    margin-bottom: 10px;
+    color: var(--accent);
+    text-shadow: var(--accent-glow);
+    animation: fadeSlideUp 1.2s ease forwards;
+}
 
-    /* SKILLS */
-    .skills-grid {
-        display:grid;
-        gap:20px;
-        grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-        margin-top:25px;
-    }
+.subtitle {
+    opacity: 0.8;
+    animation: fadeSlideUp 1.5s ease forwards;
+}
 
-    .skill-box {
-        background:#121212;
-        padding:20px;
-        border-radius:12px;
-        border:1px solid #1f1f1f;
-    }
+/* ===== Nav ===== */
+nav {
+    text-align: center;
+    padding: 20px 0;
+    border-bottom: 1px solid #0d1d29;
+    background: #040f16cc;
+    backdrop-filter: blur(4px);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
 
-    footer {
-        text-align:center;
-        padding:40px 20px;
-        color:var(--muted);
-        font-size:.9rem;
-        margin-top:70px;
-        border-top:1px solid #1b1b1b;
-    }
+nav a {
+    margin: 0 18px;
+    font-weight: 600;
+    color: var(--accent);
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+nav a:hover {
+    text-shadow: var(--accent-glow);
+    transform: translateY(-2px);
+}
+
+/* ===== Sections ===== */
+
+.section {
+    width: 90%;
+    max-width: 1200px;
+    margin: 60px auto;
+}
+
+h2 {
+    font-size: 2.2rem;
+    text-align: center;
+    color: var(--accent);
+    text-shadow: var(--accent-glow);
+    margin-bottom: 25px;
+}
+
+/* ===== PROJECT GRID ===== */
+
+.projects {
+    display: grid;
+    gap: 35px;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    margin-top: 40px;
+}
+
+.card {
+    background: var(--panel);
+    padding: 30px;
+    border-radius: 18px;
+    border: 1px solid #12212d;
+    transition: 0.35s ease;
+    animation: fadeSlideUp 1.3s ease forwards;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    border-color: var(--accent);
+    box-shadow: var(--accent-glow);
+}
+
+/* ===== Text Styling ===== */
+
+.role {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.tech {
+    font-size: 0.9rem;
+    color: var(--accent);
+    margin-bottom: 15px;
+}
+
+a {
+    color: var(--accent);
+    font-weight: 600;
+}
+
+a:hover {
+    text-shadow: var(--accent-glow);
+}
+
+/* ===== Skills ===== */
+
+.skills-grid {
+    display: grid;
+    gap: 25px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    margin-top: 25px;
+}
+
+.skill-box {
+    background: #0a151d;
+    padding: 20px;
+    border: 1px solid #12212d;
+    border-radius: 14px;
+    transition: 0.3s ease;
+}
+
+.skill-box:hover {
+    border-color: var(--accent);
+    box-shadow: var(--accent-glow);
+}
+
+/* ===== Footer ===== */
+
+footer {
+    text-align: center;
+    padding: 40px;
+    color: var(--muted);
+    margin-top: 60px;
+    border-top: 1px solid #0b1b27;
+}
 </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
 <header>
     <h1>Mohit Sharma</h1>
     <div class="subtitle">Unity Game Developer — Mobile • VR • Multiplayer • WebGL</div>
-    <div class="subtitle" style="margin-top:10px;">📧 mohitsharma234hbk@gmail.com | 📞 8979556641</div>
+    <div class="subtitle">📧 mohitsharma234hbk@gmail.com | 📞 8979556641</div>
 </header>
 
-<!-- NAV -->
-<nav>
+<nav class="fade-in">
     <a href="#about">ABOUT</a>
     <a href="#projects">PROJECTS</a>
     <a href="#skills">SKILLS</a>
@@ -123,81 +206,77 @@
     <a href="#education">EDUCATION</a>
 </nav>
 
-<!-- ABOUT -->
-<section id="about" class="section">
+<section id="about" class="section fade-in">
 <h2>About Me</h2>
-<p style="text-align:center;max-width:800px;margin:auto;">
-I’m a Unity developer with 5+ years of experience building  
-<strong>gameplay systems, combat loops, AI, UI architecture, multiplayer frameworks, VR mechanics, and large-scale mobile features.</strong>  
-I enjoy creating the invisible logic that gives a game its heartbeat and brings worlds to life.
+<p style="text-align:center; max-width:800px; margin:auto;">
+I’m a Unity Game Developer with 5+ years of experience building <strong>combat systems, AI behavior, multiplayer logic, VR interactions, gameplay loops, and UI architecture</strong>.  
+I love crafting digital worlds and making invisible logic feel alive to the player.
 </p>
 </section>
 
-<!-- SKILLS -->
-<section id="skills" class="section">
+<section id="skills" class="section fade-in">
 <h2>Core Skills</h2>
 
 <div class="skills-grid">
 
     <div class="skill-box">
-        <h3>Programming</h3>
+        <h3 class="neon">Programming</h3>
         <p>C#, Java, C++</p>
     </div>
 
     <div class="skill-box">
-        <h3>Game Development</h3>
-        <p>Gameplay, AI, Combat, Prototyping, UI Systems, Optimization</p>
+        <h3 class="neon">Game Development</h3>
+        <p>Combat, AI, UI, Prototyping, Optimization</p>
     </div>
 
     <div class="skill-box">
-        <h3>Tools & Engines</h3>
+        <h3 class="neon">Tools & Engines</h3>
         <p>Unity 3D, Visual Studio</p>
     </div>
 
     <div class="skill-box">
-        <h3>Multiplayer</h3>
+        <h3 class="neon">Multiplayer</h3>
         <p>Colyseus, Photon, Netcode</p>
     </div>
 
     <div class="skill-box">
-        <h3>Backends / SDKs</h3>
+        <h3 class="neon">Backends / SDKs</h3>
         <p>Firebase, Branch IO, ReadyPlayerMe, XR Toolkit</p>
     </div>
 
     <div class="skill-box">
-        <h3>Version Control</h3>
+        <h3 class="neon">Version Control</h3>
         <p>GitHub, Bitbucket, Plastic SCM</p>
     </div>
 
 </div>
 </section>
 
-<!-- PROJECTS -->
-<section id="projects" class="section">
+<section id="projects" class="section fade-in">
 <h2>Projects</h2>
 
 <div class="projects">
 
     <!-- NURVEIL -->
     <div class="card">
-        <h3>Nurveil: The Eyes of Light</h3>
+        <h3 class="neon">Nurveil: The Eyes of Light</h3>
         <div class="role">Mobile RPG — Core Systems</div>
         <div class="tech">Unity • C# • Firebase</div>
         <p><i>In Development — Yet to be Released</i></p>
-        <p>Deep RPG featuring combat, exploration, puzzles, shops, and AI systems.</p>
+        <p>Deep RPG with combat, puzzles, exploration, inventory, and AI systems.</p>
         <p><b>Link:</b> 
             <a href="https://drive.google.com/drive/folders/1qUa0dzF_i9TLK-EEAjVo16XHSIsQ5mMS" target="_blank">
-                Project Folder
+                Gameplay Video
             </a>
         </p>
     </div>
 
     <!-- ROYAL MARATHA -->
     <div class="card">
-        <h3>Royal Maratha (VR)</h3>
+        <h3 class="neon">Royal Maratha (VR)</h3>
         <div class="role">Primary Developer</div>
         <div class="tech">Unity • OpenXR • C#</div>
-        <p>VR sword combat, enemy waves, projectiles, and immersive battlefield gameplay.</p>
+        <p>VR sword combat game with waves, projectiles, and immersive battles.</p>
         <p><b>Link:</b> 
             <a href="https://youtu.be/-hoqSp7TJNY?si=YIb9zlDXF9-o0D-O" target="_blank">
                 Gameplay Video
@@ -207,10 +286,10 @@ I enjoy creating the invisible logic that gives a game its heartbeat and brings 
 
     <!-- CHEESE CHASE -->
     <div class="card">
-        <h3>Nostril Cheese Chase</h3>
+        <h3 class="neon">Nostril Cheese Chase</h3>
         <div class="role">Gameplay & VFX</div>
         <div class="tech">Unity • Firebase</div>
-        <p>Endless runner with smooth controls, animations, customization, and cloud save.</p>
+        <p>Endless runner with VFX, animations, and smooth movement systems.</p>
         <p><b>Link:</b> 
             <a href="https://play.google.com/store/apps/details?id=com.cheesechase&pcampaignid=web_share" target="_blank">
                 Play Store
@@ -220,10 +299,10 @@ I enjoy creating the invisible logic that gives a game its heartbeat and brings 
 
     <!-- COOKIE GAMER -->
     <div class="card">
-        <h3>Cookie Gamer</h3>
+        <h3 class="neon">Cookie Gamer</h3>
         <div class="role">Feature Developer</div>
         <div class="tech">Unity • WebGL</div>
-        <p>Farming-strategy game with resource management, upgrades, and combat-defense systems.</p>
+        <p>Farming strategy + resource management + army defense mechanics.</p>
         <p><b>Link:</b> 
             <a href="https://cookiegamer.ca/" target="_blank">
                 Play Web Version
@@ -233,10 +312,10 @@ I enjoy creating the invisible logic that gives a game its heartbeat and brings 
 
     <!-- FAIRYTALE FRENZY -->
     <div class="card">
-        <h3>Fairytale Frenzy</h3>
+        <h3 class="neon">Fairytale Frenzy</h3>
         <div class="role">Systems & Integrations</div>
         <div class="tech">Unity • Branch IO • ReadyPlayerMe</div>
-        <p>Match-3 adventure with referral system, avatar system & social features.</p>
+        <p>Match-3 adventure with referral system & avatar generation.</p>
         <p><b>Link:</b> 
             <a href="https://play.google.com/store/apps/details?id=com.tymediaus.fairytale&pcampaignid=web_share" target="_blank">
                 Play Store
@@ -246,10 +325,10 @@ I enjoy creating the invisible logic that gives a game its heartbeat and brings 
 
     <!-- WORD WRAP -->
     <div class="card">
-        <h3>Word Wrap</h3>
+        <h3 class="neon">Word Wrap</h3>
         <div class="role">Primary Developer</div>
         <div class="tech">Unity • Colyseus</div>
-        <p>Multiplayer word puzzle with real-time sessions, UI flow & data simulation.</p>
+        <p>Multiplayer word puzzle with real-time sessions & UI flow.</p>
         <p><b>Link:</b> 
             <a href="https://play.google.com/store/apps/details?id=com.BazanEnterprises.WordWrap&pcampaignid=web_share" target="_blank">
                 Play Store
@@ -259,10 +338,10 @@ I enjoy creating the invisible logic that gives a game its heartbeat and brings 
 
     <!-- HUNT & ESCAPE -->
     <div class="card">
-        <h3>Hunt and Escape</h3>
+        <h3 class="neon">Hunt and Escape</h3>
         <div class="role">Primary Developer</div>
         <div class="tech">Unity</div>
-        <p>Scavenger + treasure hunt with riddles, exploration & progression.</p>
+        <p>Scavenger hunt + treasure hunt gameplay with riddles & progression.</p>
         <p><b>Link:</b> 
             <a href="https://play.google.com/store/apps/details?id=com.RanaItinerans.HuntAndEscape&pcampaignid=web_share" target="_blank">
                 Play Store
@@ -272,10 +351,10 @@ I enjoy creating the invisible logic that gives a game its heartbeat and brings 
 
     <!-- BLUEBERRY GAMES -->
     <div class="card">
-        <h3>Blueberry Games</h3>
+        <h3 class="neon">Blueberry Games</h3>
         <div class="role">Game Developer</div>
         <div class="tech">Unity</div>
-        <p>A library of casual games with reusable systems & live data interactions.</p>
+        <p>A mini-game universe with reusable systems + API integrations.</p>
         <p><b>Link:</b> 
             <a href="https://play.google.com/store/apps/details?id=com.novotraxcorp.blueberrygames&pcampaignid=web_share" target="_blank">
                 Play Store
@@ -286,16 +365,14 @@ I enjoy creating the invisible logic that gives a game its heartbeat and brings 
 </div>
 </section>
 
-<!-- EXPERIENCE -->
-<section id="experience" class="section">
+<section id="experience" class="section fade-in">
 <h2>Experience</h2>
 <p><strong>Game Developer — Logic Simplified</strong> (2022–Present)</p>
 <p><strong>Game Developer — Blueberry Fun</strong> (2021–2022)</p>
 <p><strong>Game Developer Intern — Green Light Studios</strong> (2020–2021)</p>
 </section>
 
-<!-- EDUCATION -->
-<section id="education" class="section">
+<section id="education" class="section fade-in">
 <h2>Education</h2>
 <p>MCA (Game Development) — Jain University, Bengaluru</p>
 <p>BSc (IT) — SDS Uttarakhand University</p>

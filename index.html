@@ -18,6 +18,7 @@
     --accent-glow: 0 0 12px #31e1ff, 0 0 28px #19b8d8;
     --text: #e8faff;
     --muted: #7ca3b0;
+    --link-light: #7fe8ff;   /* ★ NEW LIGHT BLUE LINK COLOR */
 }
 
 body {
@@ -29,17 +30,14 @@ body {
     overflow-x: hidden;
 }
 
-/* Nice universal fade + slide */
+/* Fade + Slide animation */
 @keyframes fadeSlide {
     0% { opacity: 0; transform: translateY(40px); }
     100% { opacity: 1; transform: translateY(0); }
 }
+.fade { opacity: 0; animation: fadeSlide 1.2s ease forwards; }
 
-.fade {
-    opacity: 0;
-    animation: fadeSlide 1.2s ease forwards;
-}
-
+/* Neon Utility */
 .neon {
     color: var(--accent);
     text-shadow: var(--accent-glow);
@@ -56,11 +54,11 @@ header {
 h1 {
     font-size: 3.4rem;
     margin-bottom: 15px;
-    text-shadow: var(--accent-glow);
     color: var(--accent);
+    text-shadow: var(--accent-glow);
 }
 
-/* NAV BAR */
+/* NAVBAR */
 nav {
     text-align: center;
     padding: 18px 0;
@@ -74,7 +72,7 @@ nav {
 
 nav a {
     margin: 0 22px;
-    color: var(--accent);
+    color: var(--link-light);
     font-weight: 600;
     text-decoration: none;
     transition: 0.3s ease;
@@ -124,8 +122,7 @@ h2 {
 }
 
 .card h3 {
-    margin-top: 0;
-    margin-bottom: 12px;
+    margin: 0 0 12px 0;
     color: var(--accent);
     text-shadow: var(--accent-glow);
     font-size: 1.5rem;
@@ -158,6 +155,19 @@ h2 {
     text-shadow: var(--accent-glow);
 }
 
+/* LINKS — LIGHT BLUE */
+a {
+    color: var(--link-light);
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+a:hover {
+    text-shadow: var(--accent-glow);
+    opacity: 0.9;
+}
+
 /* FOOTER */
 footer {
     text-align: center;
@@ -173,8 +183,8 @@ footer {
 
 <header class="fade">
     <h1>Mohit Sharma</h1>
-    <div class="subtitle">Unity Game Developer — Mobile • VR • Multiplayer • WebGL</div>
-    <div class="subtitle">📧 mohitsharma234hbk@gmail.com | 📞 8979556641</div>
+    <div>Unity Game Developer — Mobile • VR • Multiplayer • WebGL</div>
+    <div>📧 mohitsharma234hbk@gmail.com | 📞 8979556641</div>
 </header>
 
 <nav class="fade">
@@ -188,8 +198,8 @@ footer {
 <section id="about" class="section fade">
 <h2>About Me</h2>
 <p style="text-align:center; max-width:830px; margin:auto;">
-I craft game systems, interactions, and moment-to-moment gameplay that feel smooth, alive, and meaningful.  
-My work spans combat mechanics, AI behavior, UI flow, multiplayer logic, world interaction, and VR experiences — all tuned for player feel and performance.
+I craft game systems, interactions, and moment-to-moment gameplay that feel alive and responsive.
+My work spans combat mechanics, AI, UI flow, multiplayer logic, VR interactions, and polished gameplay loops.
 </p>
 </section>
 
@@ -205,7 +215,7 @@ My work spans combat mechanics, AI behavior, UI flow, multiplayer logic, world i
 
     <div class="skill-box">
         <h3>Game Systems</h3>
-        <p>Combat, AI, UI, Prototyping, Player Controls, Optimization</p>
+        <p>Combat, AI, Controls, UI, Prototyping</p>
     </div>
 
     <div class="skill-box">
@@ -236,11 +246,11 @@ My work spans combat mechanics, AI behavior, UI flow, multiplayer logic, world i
 
 <div class="projects">
 
-    <!-- NURVEIL -->
+    <!-- Nurveil -->
     <div class="card">
         <h3 class="neon">Nurveil: The Eyes of Light</h3>
         <p><i>In Development — Yet to be Released</i></p>
-        <p>A deep RPG featuring combat, puzzles, exploration, inventory, merchants, and AI-driven encounters.</p>
+        <p>A deep RPG featuring combat, puzzles, exploration, inventory, merchants, and AI encounters.</p>
         <p><b>Link:</b> 
             <a href="https://drive.google.com/drive/folders/1qUa0dzF_i9TLK-EEAjVo16XHSIsQ5mMS" target="_blank">
                 Gameplay Video
@@ -248,10 +258,10 @@ My work spans combat mechanics, AI behavior, UI flow, multiplayer logic, world i
         </p>
     </div>
 
-    <!-- ROYAL MARATHA -->
+    <!-- Royal Maratha -->
     <div class="card">
         <h3 class="neon">Royal Maratha (VR)</h3>
-        <p>A full VR combat experience with swordplay, waves of enemies, projectiles, and immersive arena design.</p>
+        <p>A full VR sword combat experience featuring realistic movement and intense enemy waves.</p>
         <p><b>Link:</b>
             <a href="https://youtu.be/-hoqSp7TJNY?si=YIb9zlDXF9-o0D-O" target="_blank">
                 Gameplay Video
@@ -259,10 +269,10 @@ My work spans combat mechanics, AI behavior, UI flow, multiplayer logic, world i
         </p>
     </div>
 
-    <!-- CHEESE CHASE -->
+    <!-- Cheese Chase -->
     <div class="card">
         <h3 class="neon">Nostril Cheese Chase</h3>
-        <p>An endless runner with sharp movement, VFX-driven feedback, skins, and cloud save support.</p>
+        <p>An endless runner with polished movement, effects, customization, and cloud saving.</p>
         <p><b>Link:</b> 
             <a href="https://play.google.com/store/apps/details?id=com.cheesechase&pcampaignid=web_share" target="_blank">
                 Play Store
@@ -270,10 +280,10 @@ My work spans combat mechanics, AI behavior, UI flow, multiplayer logic, world i
         </p>
     </div>
 
-    <!-- COOKIE GAMER -->
+    <!-- Cookie Gamer -->
     <div class="card">
         <h3 class="neon">Cookie Gamer</h3>
-        <p>A farming strategy world featuring resources, upgrades, economy, and army-based defense mechanics.</p>
+        <p>A farming-strategy world with resources, upgrades, economy, and army-defense mechanics.</p>
         <p><b>Link:</b> 
             <a href="https://cookiegamer.ca/" target="_blank">
                 Play Web Version
@@ -281,10 +291,10 @@ My work spans combat mechanics, AI behavior, UI flow, multiplayer logic, world i
         </p>
     </div>
 
-    <!-- FAIRYTALE FRENZY -->
+    <!-- Fairytale Frenzy -->
     <div class="card">
         <h3 class="neon">Fairytale Frenzy</h3>
-        <p>A stylized Match-3 game enhanced with referral systems, avatar creation, and social features.</p>
+        <p>A stylized Match-3 game enhanced with avatars, referral systems, and social features.</p>
         <p><b>Link:</b> 
             <a href="https://play.google.com/store/apps/details?id=com.tymediaus.fairytale&pcampaignid=web_share" target="_blank">
                 Play Store
@@ -292,10 +302,10 @@ My work spans combat mechanics, AI behavior, UI flow, multiplayer logic, world i
         </p>
     </div>
 
-    <!-- WORD WRAP -->
+    <!-- Word Wrap -->
     <div class="card">
         <h3 class="neon">Word Wrap</h3>
-        <p>A multiplayer word-puzzle with clean UI flow, smooth transitions, and real-time gameplay sessions.</p>
+        <p>A multiplayer word puzzle with smooth UI flow and fast-paced real-time gameplay.</p>
         <p><b>Link:</b> 
             <a href="https://play.google.com/store/apps/details?id=com.BazanEnterprises.WordWrap&pcampaignid=web_share" target="_blank">
                 Play Store
@@ -303,10 +313,10 @@ My work spans combat mechanics, AI behavior, UI flow, multiplayer logic, world i
         </p>
     </div>
 
-    <!-- HUNT & ESCAPE -->
+    <!-- Hunt And Escape -->
     <div class="card">
         <h3 class="neon">Hunt and Escape</h3>
-        <p>A scavenger-hunt adventure with riddles, location clues, exploration, and multi-day play sessions.</p>
+        <p>A scavenger hunt adventure featuring riddles, exploration, clues, and multi-stage progression.</p>
         <p><b>Link:</b> 
             <a href="https://play.google.com/store/apps/details?id=com.RanaItinerans.HuntAndEscape&pcampaignid=web_share" target="_blank">
                 Play Store
@@ -314,10 +324,10 @@ My work spans combat mechanics, AI behavior, UI flow, multiplayer logic, world i
         </p>
     </div>
 
-    <!-- BLUEBERRY GAMES -->
+    <!-- Blueberry Games -->
     <div class="card">
         <h3 class="neon">Blueberry Games</h3>
-        <p>A universe of mini-games enhanced with reusable systems, adaptive UI, and live content delivery.</p>
+        <p>A multi-game platform featuring casual games, reusable systems, and live content delivery.</p>
         <p><b>Link:</b> 
             <a href="https://play.google.com/store/apps/details?id=com.novotraxcorp.blueberrygames&pcampaignid=web_share" target="_blank">
                 Play Store

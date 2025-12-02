@@ -21,6 +21,7 @@
     --muted: #7ca3b0;
     --link-light: #92efff;
     --neon-underline-color: #31e1ff;
+    --project-link-color: #7fceff; /* light blue */
 }
 
 body {
@@ -52,22 +53,18 @@ body {
 /* HEADER                    */
 /* ========================= */
 
-header {
-    padding: 110px 20px 90px;
-    text-align: center;
-    background: radial-gradient(circle at top, #0a131c, #03070c 70%);
-    border-bottom: 1px solid #0c1a24;
-}
-
-/* CLEAN + SHARP HEADER GLOW - Outline style, less blurry, crisp edges */
+/* Headers with darker outline */
 h1,
 h2 {
     color: var(--accent);
-    /* Using multiple sharp shadows to create neon outline */
+    /* Neon glow + darker outline */
     text-shadow:
-        0 0 2px #31e1ff,
+        -1px -1px 0 #000000,
+        1px -1px 0 #000000,
+        -1px 1px 0 #000000,
+        1px 1px 0 #000000,
         0 0 4px #31e1ff,
-        0 0 6px #19b8d8,
+        0 0 6px #31e1ff,
         0 0 8px #19b8d8;
     letter-spacing: 1px;
     margin-bottom: 15px;
@@ -83,6 +80,13 @@ h2 {
     font-size: 2.4rem;
     text-align: center;
     margin-bottom: 30px;
+}
+
+header {
+    padding: 110px 20px 90px;
+    text-align: center;
+    background: radial-gradient(circle at top, #0a131c, #03070c 70%);
+    border-bottom: 1px solid #0c1a24;
 }
 
 /* ========================= */
@@ -113,37 +117,61 @@ nav a {
     transition: color 0.3s ease;
 }
 
-/* Neon animated underline - Reusable for all clickable links */
-a.project-link,
-nav a {
-    --underline-height: 2px;
-    --underline-color: var(--neon-underline-color);
-    --underline-glow: 0 0 8px var(--underline-color), 0 0 16px var(--underline-color);
-}
-
-/* Animated neon underline */
-a.project-link::after,
+/* Neon animated underline - Reusable for all clickable nav links */
 nav a::after {
     content: "";
     position: absolute;
     left: 0;
     bottom: 0;
-    height: var(--underline-height);
+    height: 2px;
     width: 0%;
-    background: var(--underline-color);
-    box-shadow: var(--underline-glow);
+    background: var(--neon-underline-color);
+    box-shadow: 0 0 8px var(--neon-underline-color), 0 0 16px var(--neon-underline-color);
     transition: width 0.3s ease;
     border-radius: 2px;
 }
 
-a.project-link:hover::after,
 nav a:hover::after {
     width: 100%;
 }
 
-a.project-link:hover,
 nav a:hover {
     color: var(--accent-soft);
+}
+
+/* ========================= */
+/* PROJECT LINKS             */
+/* ========================= */
+
+a.project-link {
+    color: var(--project-link-color);
+    font-weight: 600;
+    text-decoration: none;
+    position: relative;
+    padding-bottom: 6px;
+    transition: color 0.3s ease;
+}
+
+/* Animated neon underline for project links */
+a.project-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 0%;
+    background: var(--project-link-color);
+    box-shadow: 0 0 8px var(--project-link-color), 0 0 16px var(--project-link-color);
+    transition: width 0.3s ease;
+    border-radius: 2px;
+}
+
+a.project-link:hover::after {
+    width: 100%;
+}
+
+a.project-link:hover {
+    color: #a6d8ff; /* slightly lighter on hover */
 }
 
 /* ========================= */

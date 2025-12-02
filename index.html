@@ -18,7 +18,7 @@
     --accent-glow: 0 0 12px #31e1ff, 0 0 28px #19b8d8;
     --text: #e8faff;
     --muted: #7ca3b0;
-    --link-light: #7fe8ff;  /* LIGHT BLUE CLICKABLE LINKS */
+    --link-light: #7fe8ff;
 }
 
 body {
@@ -51,11 +51,15 @@ header {
     border-bottom: 1px solid #0c1a24;
 }
 
+/* CRISP HEADER GLOW */
 h1 {
     font-size: 3.4rem;
     margin-bottom: 15px;
     color: var(--accent);
-    text-shadow: var(--accent-glow);
+    text-shadow:
+        0 0 6px #31e1ff,
+        0 0 12px #31e1ff,
+        0 0 20px #19b8d8;
 }
 
 /* NAVIGATION */
@@ -75,12 +79,25 @@ nav a {
     color: var(--link-light);
     font-weight: 600;
     text-decoration: none;
+    position: relative;
+    padding-bottom: 4px;
     transition: 0.3s ease;
 }
 
-nav a:hover {
-    text-shadow: var(--accent-glow);
-    transform: translateY(-2px);
+/* NAV Underline Animation */
+nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    height: 2px;
+    width: 0%;
+    background: var(--accent);
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
 }
 
 /* SECTIONS */
@@ -155,30 +172,29 @@ h2 {
     text-shadow: var(--accent-glow);
 }
 
-/* ========================= */
-/*   CLICKABLE LINK PULSE    */
-/* ========================= */
-
+/* CLICKABLE LINKS — ANIMATED UNDERLINE */
 a {
     color: var(--link-light);
     font-weight: 600;
     text-decoration: none;
     position: relative;
-    transition: 0.25s ease;
-    animation: linkPulse 2.2s infinite ease-in-out;
+    padding-bottom: 3px;
 }
 
-a:hover {
-    text-shadow: var(--accent-glow);
-    transform: translateY(-1px);
-    opacity: 1;
+/* Underline Animation */
+a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    height: 2px;
+    width: 0%;
+    background: var(--accent);
+    transition: width 0.28s ease;
 }
 
-/* Soft neon ON/OFF pulsing animation */
-@keyframes linkPulse {
-    0% { text-shadow: 0 0 0px #7fe8ff; }
-    50% { text-shadow: 0 0 12px #7fe8ff, 0 0 25px #31e1ff; }
-    100% { text-shadow: 0 0 0px #7fe8ff; }
+a:hover::after {
+    width: 100%;
 }
 
 /* FOOTER */
@@ -228,7 +244,16 @@ VR interactions, and multiplayer logic. I thrive on making player actions feel r
 
     <div class="skill-box">
         <h3>Game Systems</h3>
-        <p>Combat, AI, Controls, UI, Prototyping</p>
+        <p>
+        Combat Systems, AI Behaviors, Enemy States,  
+        Animation State Machines, Ability Systems,  
+        Inventory & Crafting, Interaction Systems,  
+        Dialogue Systems, Quest Flow, Save/Load Architecture,  
+        Procedural Spawn Systems, Camera Systems,  
+        UI/UX Micro-interactions, Level Flow & Triggers,  
+        Physics-based Systems, Feedback & Game Juice,  
+        Gameplay Prototyping
+        </p>
     </div>
 
     <div class="skill-box">

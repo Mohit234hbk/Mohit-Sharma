@@ -18,6 +18,8 @@
     --link-light: #92efff;
     --neon-underline-color: #31e1ff;
     --project-link-color: #7fceff;
+    --phone-color: #6fe3ff;
+    --resume-btn-bg: #0f1c26;
 }
 
 /* Body */
@@ -46,7 +48,7 @@ body {
     animation: fadeSlide 1.2s ease forwards;
 }
 
-/* Headers with lighter outline and glow */
+/* Headers with glow */
 h1,
 h2,
 h3 {
@@ -62,11 +64,9 @@ h3 {
     letter-spacing: 1px;
     margin-bottom: 15px;
 }
-
-/* Specific font sizes */
 h1 {
     font-size: 3.6rem;
-    margin-bottom: 20px;
+    margin-bottom: 18px;
 }
 h2 {
     font-size: 2.4rem;
@@ -78,12 +78,46 @@ h3 {
     margin-bottom: 12px;
 }
 
-/* Header */
+/* Header aligned cleanly */
 header {
-    padding: 110px 20px 90px;
+    padding: 100px 20px 80px;
     text-align: center;
     background: radial-gradient(circle at top, #0a131c, #03070c 70%);
     border-bottom: 1px solid #0c1a24;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+}
+
+/* Contact line */
+.contact-line {
+    margin-top: 6px;
+    font-size: 1.05rem;
+}
+.contact-line .phone {
+    color: var(--phone-color);
+    font-weight: 600;
+}
+
+/* Resume Button */
+.resume-btn {
+    margin-top: 10px;
+    display: inline-block;
+    padding: 10px 20px;
+    background: var(--resume-btn-bg);
+    border: 1px solid var(--accent);
+    border-radius: 8px;
+    color: var(--accent-soft);
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.25s ease;
+    position: relative;
+}
+.resume-btn:hover {
+    box-shadow: var(--accent-glow);
+    transform: translateY(-3px);
 }
 
 /* Navigation */
@@ -124,17 +158,8 @@ a::after {
     border-radius: 2px;
     pointer-events: none;
 }
-
-nav a::after {
-    box-shadow: 0 0 6px var(--neon-underline-color);
-}
-
 a:hover::after {
     width: 100%;
-}
-
-nav a:hover {
-    color: var(--accent-soft);
 }
 
 /* Project Links */
@@ -146,12 +171,10 @@ a.project-link {
     padding-bottom: 6px;
     transition: color 0.3s ease;
 }
-
 a.project-link::after {
     background: var(--project-link-color);
     box-shadow: 0 0 8px var(--project-link-color), 0 0 16px var(--project-link-color);
 }
-
 a.project-link:hover {
     color: #a6d8ff;
 }
@@ -180,13 +203,7 @@ a.project-link:hover {
     animation: fadeSlide 1.3s ease forwards;
 }
 
-/* Highlighted card when tapped/clicked */
-.card.active {
-    border-color: var(--accent);
-    box-shadow: var(--accent-glow);
-    transform: translateY(-12px);
-}
-
+.card.active,
 .card:hover {
     transform: translateY(-12px);
     border-color: var(--accent);
@@ -228,9 +245,9 @@ p {
     font-size: 1.05rem;
     max-width: 830px;
     margin: 0 auto 1.5em;
-    color: var(--text);
 }
 
+/* Mobile */
 @media (max-width: 600px) {
     header {
         padding: 80px 15px 60px;
@@ -251,10 +268,21 @@ p {
 </head>
 
 <body>
+
 <header class="fade">
     <h1>Mohit Sharma</h1>
     <div>Unity Game Developer — Mobile • VR • Multiplayer • WebGL</div>
-    <div>📧 mohitsharma234hbk@gmail.com | 📞 8979556641</div>
+
+    <div class="contact-line">
+        📧 mohitsharma234hbk@gmail.com |
+        <span class="phone">📞 8979556641</span>
+    </div>
+
+    <a class="resume-btn"
+       href="https://docs.google.com/document/d/1DIwS8_zZwnreM1Z-SmUzwBAjIor0NkG3/edit?usp=drivesdk"
+       target="_blank">
+       ⬇ Download Resume
+    </a>
 </header>
 
 <nav class="fade">
@@ -319,7 +347,6 @@ p {
 
     <div class="projects">
 
-        <!-- PROJECT CARDS (unchanged content) -->
         <div class="card">
             <h3 class="neon">Nurveil: The Eyes of Light</h3>
             <p><i>In development</i></p>
@@ -407,6 +434,7 @@ p {
                 </a>
             </p>
         </div>
+
     </div>
 </section>
 

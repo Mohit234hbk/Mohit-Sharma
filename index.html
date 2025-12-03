@@ -51,7 +51,6 @@ h1,
 h2,
 h3 {
     color: var(--accent);
-    /* Lighter black outline and glow */
     text-shadow:
         -1px -1px 0 #111,
         1px -1px 0 #111,
@@ -181,6 +180,13 @@ a.project-link:hover {
     animation: fadeSlide 1.3s ease forwards;
 }
 
+/* Highlighted card when tapped/clicked */
+.card.active {
+    border-color: var(--accent);
+    box-shadow: var(--accent-glow);
+    transform: translateY(-12px);
+}
+
 .card:hover {
     transform: translateY(-12px);
     border-color: var(--accent);
@@ -218,7 +224,6 @@ footer {
     font-size: 0.9rem;
 }
 
-/* Minor tweaks */
 p {
     font-size: 1.05rem;
     max-width: 830px;
@@ -264,7 +269,7 @@ p {
     <h2>About Me</h2>
     <p style="text-align:center;">
         I build gameplay systems that feel responsive, polished, and alive — from combat and AI to UI flow,
-        VR interactions, and multiplayer logic. I thrive on making player actions feel rewarding and immersive.
+        VR interactions, and multiplayer logic. I love crafting experiences that feel rewarding and immersive.
     </p>
 </section>
 
@@ -313,97 +318,91 @@ p {
     <h2>Projects</h2>
 
     <div class="projects">
-        <!-- NURVEIL -->
+
+        <!-- PROJECT CARDS (unchanged content) -->
         <div class="card">
             <h3 class="neon">Nurveil: The Eyes of Light</h3>
             <p><i>In development</i></p>
             <p>An immersive RPG featuring exploration, combat, puzzles, merchants, inventory systems and AI-driven encounters.</p>
             <p><b>Link:</b>
-                <a class="project-link" href="https://drive.google.com/drive/folders/1qUa0dzF_i9TLK-EEAjVo16XHSIsQ5mMS" target="_blank" rel="noopener noreferrer">
+                <a class="project-link" href="https://drive.google.com/drive/folders/1qUa0dzF_i9TLK-EEAjVo16XHSIsQ5mMS" target="_blank">
                     Gameplay Video
                 </a>
             </p>
         </div>
 
-        <!-- ROYAL MARATHA -->
         <div class="card">
             <h3 class="neon">Royal Maratha (VR)</h3>
             <p><i>Exclusive release</i></p>
             <p>A VR combat arena experience with swordplay, enemy waves, projectiles, and immersive interactions.</p>
             <p><b>Link:</b>
-                <a class="project-link" href="https://youtu.be/-hoqSp7TJNY?si=YIb9zlDXF9-o0D-O" target="_blank" rel="noopener noreferrer">
+                <a class="project-link" href="https://youtu.be/-hoqSp7TJNY?si=YIb9zlDXF9-o0D-O" target="_blank">
                     Gameplay Video
                 </a>
             </p>
         </div>
 
-        <!-- CHEESE CHASE -->
         <div class="card">
             <h3 class="neon">Nostril Cheese Chase</h3>
             <p><i>iOS and Play Store</i></p>
-            <p>An endless runner featuring tight controls, vibrant VFX, custom skins, and cloud save support.</p>
+            <p>An endless runner with tight controls, custom skins, VFX, and cloud saving.</p>
             <p><b>Link:</b>
-                <a class="project-link" href="https://play.google.com/store/apps/details?id=com.cheesechase&pcampaignid=web_share" target="_blank" rel="noopener noreferrer">
+                <a class="project-link" href="https://play.google.com/store/apps/details?id=com.cheesechase" target="_blank">
                     Play Store
                 </a>
             </p>
         </div>
 
-        <!-- COOKIE GAMER -->
         <div class="card">
             <h3 class="neon">Cookie Gamer</h3>
             <p><i>Released on Web</i></p>
-            <p>A strategy-farming world with upgrades, resource systems, economy, and army-based defense pathways.</p>
+            <p>A strategy-farming world with upgrades, economy, and army-based defense pathways.</p>
             <p><b>Link:</b>
-                <a class="project-link" href="https://cookiegamer.ca/" target="_blank" rel="noopener noreferrer">
+                <a class="project-link" href="https://cookiegamer.ca/" target="_blank">
                     Play Web Version
                 </a>
             </p>
         </div>
 
-        <!-- FAIRYTALE FRENZY -->
         <div class="card">
             <h3 class="neon">Fairytale Frenzy</h3>
             <p><i>iOS and Play Store</i></p>
-            <p>A magical Match-3 experience integrated with avatar creation, referral systems, and social mechanics.</p>
+            <p>A magical Match-3 experience with avatars, referral systems, and social mechanics.</p>
             <p><b>Link:</b>
-                <a class="project-link" href="https://play.google.com/store/apps/details?id=com.tymediaus.fairytale&pcampaignid=web_share" target="_blank" rel="noopener noreferrer">
+                <a class="project-link" href="https://play.google.com/store/apps/details?id=com.tymediaus.fairytale" target="_blank">
                     Play Store
                 </a>
             </p>
         </div>
 
-        <!-- WORD WRAP -->
         <div class="card">
             <h3 class="neon">Word Wrap</h3>
             <p><i>iOS and Play Store</i></p>
-            <p>A multiplayer word puzzle offering smooth UI transitions and fast-paced online sessions.</p>
+            <p>A multiplayer word puzzle with smooth UI transitions and fast-paced online sessions.</p>
             <p><b>Link:</b>
-                <a class="project-link" href="https://play.google.com/store/apps/details?id=com.BazanEnterprises.WordWrap&pcampaignid=web_share" target="_blank" rel="noopener noreferrer">
+                <a class="project-link" href="https://play.google.com/store/apps/details?id=com.BazanEnterprises.WordWrap" target="_blank">
                     Play Store
                 </a>
             </p>
         </div>
 
-        <!-- HUNT & ESCAPE -->
         <div class="card">
             <h3 class="neon">Hunt and Escape</h3>
             <p><i>iOS and Play Store</i></p>
-            <p>A scavenger-hunt quest featuring riddles, clues, exploration, and multi-stage progression.</p>
+            <p>A scavenger-hunt quest with riddles, clues, and multi-stage exploration.</p>
             <p><b>Link:</b>
-                <a class="project-link" href="https://play.google.com/store/apps/details?id=com.RanaItinerans.HuntAndEscape&pcampaignid=web_share" target="_blank" rel="noopener noreferrer">
+                <a class="project-link" href="https://play.google.com/store/apps/details?id=com.RanaItinerans.HuntAndEscape" target="_blank">
                     Play Store
                 </a>
             </p>
         </div>
 
-        <!-- BLUEBERRY GAMES -->
         <div class="card">
             <h3 class="neon">Blueberry Games</h3>
             <p><i>iOS and Play Store</i></p>
-            <p>A casual game collection featuring reusable systems, modular UI, and live content updates.</p>
+            <p>A casual game collection featuring modular UI and reusable systems.</p>
             <p><b>Link:</b>
-                <a class="project-link" href="https://play.google.com/store/apps/details?id=com.novotraxcorp.blueberrygames&pcampaignid=web_share" target="_blank" rel="noopener noreferrer">
+                <a class="project-link" href="https://play.google.com/store/apps/details?id=com.novotraxcorp.blueberrygames" target="_blank">
                     Play Store
                 </a>
             </p>
@@ -413,9 +412,24 @@ p {
 
 <section id="experience" class="section fade">
     <h2>Experience</h2>
-    <p><strong>Game Developer — Logic Simplified</strong> (2022–Present)</p>
-    <p><strong>Game Developer — Blueberry Fun</strong> (2021–2022)</p>
-    <p><strong>Game Developer Intern — Green Light Studios</strong> (2020–2021)</p>
+
+    <p>
+        <strong>May 2022 – Present</strong><br>
+        <strong>Game Developer</strong><br>
+        Logic Simplified Pvt. Ltd., Dehradun
+    </p>
+
+    <p>
+        <strong>Feb 2021 – Apr 2022</strong><br>
+        <strong>Game Developer</strong><br>
+        Blueberry Fun Pvt. Ltd., Jaipur
+    </p>
+
+    <p>
+        <strong>Sep 2020 – Jan 2021</strong><br>
+        <strong>Game Developer Intern</strong><br>
+        Green Light Studios Pvt. Ltd., Mumbai
+    </p>
 </section>
 
 <section id="education" class="section fade">
@@ -427,5 +441,20 @@ p {
 <footer>
     © 2025 Mohit Sharma — Unity Game Developer
 </footer>
+
+<!-- CLICK-HIGHLIGHT SCRIPT -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const cards = document.querySelectorAll(".card");
+
+    cards.forEach(card => {
+        card.addEventListener("click", () => {
+            cards.forEach(c => c.classList.remove("active"));
+            card.classList.add("active");
+        });
+    });
+});
+</script>
+
 </body>
 </html>
